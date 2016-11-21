@@ -115,7 +115,7 @@ function storeToken(token) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function callAppsScript(auth) {
-  var scriptId = 'ENTER_YOUR_SCRIPT_ID_HERE';
+  var scriptId = process.env.GORDON_API_KEY;
   var script = google.script('v1');
 
   // Make the API request. The request object is included here as 'resource'.

@@ -41,5 +41,4 @@ module.exports = (robot) ->
     }
 
     request options, (error, response, body) ->
-      console.log(response)
       msg.send response
