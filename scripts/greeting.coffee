@@ -24,21 +24,21 @@ module.exports = (robot) ->
   robot.respond /test/, (msg) ->
     Google.auth(process.env.GORDON_CLIENT_ID, process.env.GORDON_PROJECT_ID, process.env.GORDON_CLIENT_SECRET, [process.env.HUBOT_HEROKU_KEEPALIVE_URL], [process.env.HUBOT_HEROKU_KEEPALIVE_URL])
 
-    headers = {
-      'Content-Type':'application/json'
-    }
-
-    options = {
-      url: 'https://script.googleapis.com/v1/scripts/' + process.env.GORDON_API_KEY + ':run',
-      method: 'POST',
-      headers: headers,
-      json: true,
-      form: {
-        'function': 'getLastRow',
-        'parameters': [],
-        'devMode': true
-      }
-    }
-
-    request options, (error, response, body) ->
-      msg.send response
+    # headers = {
+    #   'Content-Type':'application/json'
+    # }
+    #
+    # options = {
+    #   url: 'https://script.googleapis.com/v1/scripts/' + process.env.GORDON_API_KEY + ':run',
+    #   method: 'POST',
+    #   headers: headers,
+    #   json: true,
+    #   form: {
+    #     'function': 'getLastRow',
+    #     'parameters': [],
+    #     'devMode': true
+    #   }
+    # }
+    #
+    # request options, (error, response, body) ->
+    #   msg.send response

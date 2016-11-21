@@ -122,7 +122,7 @@ function callAppsScript(auth) {
   script.scripts.run({
     auth: auth,
     resource: {
-      function: 'getFoldersUnderRoot'
+      function: 'getLastRow'
     },
     scriptId: scriptId
   }, function(err, resp) {
