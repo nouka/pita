@@ -40,7 +40,6 @@ module.exports = (robot) ->
       }
     }
 
-    request(options, function (error, response, body) {
+    request options, (error, response, body) ->
       console.log(response)
       msg.send response
-    })
