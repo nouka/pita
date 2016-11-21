@@ -1,4 +1,4 @@
-Google = require('./quickstart.js')
+Google = require('./gapi.js')
 
 # Description:
 #   Hubotが挨拶してくれます。

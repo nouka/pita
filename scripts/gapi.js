@@ -1,4 +1,4 @@
-//var fs = require('fs');
+var fs = require('fs');
 var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
@@ -19,7 +19,7 @@ var TOKEN_PATH = TOKEN_DIR + 'script-nodejs-quickstart.json';
 // Google Apps Script Execution API.
 exports.auth = function(client_id, project_id, client_secret, redirect_uris, javascript_origins) {
   var content = {
-    "web": {
+    "installed": {
       "client_id": client_id,
       "project_id": project_id,
       "auth_uri": "https://accounts.google.com/o/oauth2/auth",
@@ -30,7 +30,7 @@ exports.auth = function(client_id, project_id, client_secret, redirect_uris, jav
       "javascript_origins": javascript_origins
     }
   }
-  authorize(JSON.parse(content), callAppsScript);
+  authorize(content, callAppsScript);
 };
 // });
 
