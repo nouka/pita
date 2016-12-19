@@ -24,6 +24,9 @@ module.exports = (robot) ->
   robot.respond /.*朝会資料.*/, (msg) ->
     msg.send 'http://qiita.com/nouka/items/a1677b581abd9d99958b'
 
+  robot.respond /.*(ありがと|サンキュー|Thank|.*/, (msg) ->
+    msg.send 'いえいえ、どういたしまして。'
+
   robot.respond /test/, (msg) ->
     Google.auth(process.env.GORDON_CLIENT_ID, process.env.GORDON_PROJECT_ID, process.env.GORDON_CLIENT_SECRET, [process.env.HUBOT_HEROKU_KEEPALIVE_URL], [process.env.HUBOT_HEROKU_KEEPALIVE_URL])
 
