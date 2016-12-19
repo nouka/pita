@@ -14,6 +14,9 @@ module.exports = (robot) ->
     date = new Date()
     msg.send 'おはようございます、' + msg.message.user.name + 'さん。\n出勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。'
 
+  robot.respond /.*こんにち(は|わ).*/, (msg) ->
+    msg.send 'こんにちは、' + msg.message.user.name + 'さん。'
+
   robot.respond /.*((お疲れ|おつかれ)(さま|様)|オツカレ).*/, (msg) ->
     date = new Date()
     msg.send 'お疲れ様でした、' + msg.message.user.name + 'さん。\n退勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。'
