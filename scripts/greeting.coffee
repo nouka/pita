@@ -24,7 +24,7 @@ module.exports = (robot) ->
   robot.respond /.*朝会資料.*/, (msg) ->
     msg.send 'http://qiita.com/nouka/items/a1677b581abd9d99958b'
 
-  robot.respond /.*(ありがと|サンキュー|Thank|.*/, (msg) ->
+  robot.respond /.*(ありがと|サンキュー|Thank).*/, (msg) ->
     msg.send 'いえいえ、どういたしまして。'
 
   robot.respond /test/, (msg) ->
