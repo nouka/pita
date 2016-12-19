@@ -33,6 +33,12 @@ module.exports = (robot) ->
   robot.respond /.*(お腹|ハラ|腹)(すいた|減った|へった|ヘッタ).*/, (msg) ->
     msg.send 'ボクもヘッタ'
 
+  robot.respond /.*結合度.*/, (msg) ->
+    msg.send 'https://ja.m.wikipedia.org/wiki/結合度'
+
+  robot.respond /.*凝集度.*/, (msg) ->
+    msg.send 'https://ja.m.wikipedia.org/wiki/凝集度'
+
   robot.respond /test/, (msg) ->
     Google.auth(process.env.GORDON_CLIENT_ID, process.env.GORDON_PROJECT_ID, process.env.GORDON_CLIENT_SECRET, [process.env.HUBOT_HEROKU_KEEPALIVE_URL], [process.env.HUBOT_HEROKU_KEEPALIVE_URL])
 
