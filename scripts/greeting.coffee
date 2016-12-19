@@ -14,7 +14,7 @@ module.exports = (robot) ->
     date = new Date()
     msg.send 'おはようございます、' + msg.message.user.name + 'さん。\n出勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。'
 
-  robot.respond /.*(お疲れさま|おつかれさま|お疲れ様|bye).*/, (msg) ->
+  robot.respond /.*((お疲れ|おつかれ)(さま|様)|オツカレ).*/, (msg) ->
     date = new Date()
     msg.send 'お疲れ様でした、' + msg.message.user.name + 'さん。\n退勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。'
 
@@ -27,8 +27,11 @@ module.exports = (robot) ->
   robot.respond /.*(ありがと|サンキュー|Thank).*/, (msg) ->
     msg.send 'いえいえ、どういたしまして。'
 
-  robot.respond /.*(元気？|げんき？).*/, (msg) ->
+  robot.respond /.*(元気|げんき|ゲンキ).*？/, (msg) ->
     msg.send 'まあまあです。'
+
+  robot.respond /.*(お腹|ハラ|腹)(すいた|減った|へった|ヘッタ).*/, (msg) ->
+    msg.send 'ボクもヘッタ'
 
   robot.respond /test/, (msg) ->
     Google.auth(process.env.GORDON_CLIENT_ID, process.env.GORDON_PROJECT_ID, process.env.GORDON_CLIENT_SECRET, [process.env.HUBOT_HEROKU_KEEPALIVE_URL], [process.env.HUBOT_HEROKU_KEEPALIVE_URL])
