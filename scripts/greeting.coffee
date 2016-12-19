@@ -45,6 +45,9 @@ module.exports = (robot) ->
   robot.respond /.*全社朝会.*/, (msg) ->
     msg.send 'https://hangouts.google.com/hangouts/_/oz-vision.co.jp/morningmeeting'
 
+  robot.respond /.*(Scrutinizer|スクリューティナイザー|コード品質).*/, (msg) ->
+    msg.send 'https://scrutinizer-ci.com/dashboard/repositories'
+
   robot.respond /test/, (msg) ->
     Google.auth(process.env.GORDON_CLIENT_ID, process.env.GORDON_PROJECT_ID, process.env.GORDON_CLIENT_SECRET, [process.env.HUBOT_HEROKU_KEEPALIVE_URL], [process.env.HUBOT_HEROKU_KEEPALIVE_URL])
 
