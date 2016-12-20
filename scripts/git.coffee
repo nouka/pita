@@ -6,7 +6,7 @@
 
 module.exports = (robot) ->
 
-  robot.respond /open pr (.*) (.*)->(.*)/, (msg) ->
+  robot.respond /open pr (.*?) (.*?)->(.*?)/, (msg) ->
     repo = res.match[1]
     from = res.match[2]
     to   = res.match[3]
