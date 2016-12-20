@@ -10,4 +10,4 @@ module.exports = (robot) ->
     repo = res.match[1]
     from = res.match[2]
     to   = res.match[3]
-    res.send "https://github.com/oz-sysb/#{repo}/compare/#{to}...#{from}?expand=1"
+    res.send 'https://github.com/oz-sysb/#{repo}/compare/#{to}...#{from}?expand=1'
