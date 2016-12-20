@@ -21,3 +21,6 @@ module.exports = (robot) ->
 
   robot.respond /.*(Scrutinizer|スクリューティナイザー|コード品質).*/, (msg) ->
     msg.send 'https://scrutinizer-ci.com/dashboard/repositories'
+
+  robot.respond /.*朝会資料.*/, (msg) ->
+    msg.send 'http://qiita.com/nouka/items/a1677b581abd9d99958b'
