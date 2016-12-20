@@ -6,12 +6,18 @@
 #   hubot 凝集度 - 凝集度のWikiページを返してくれます
 
 module.exports = (robot) ->
-  linkTable = [{"regex": /.*結合度.*/, "message": "https://ja.m.wikipedia.org/wiki/結合度"},
-               {"regex": /.*凝集度.*/, "message": "https://ja.m.wikipedia.org/wiki/凝集度"},
-               {"regex": /.*(システム|開発|制作開発)朝会.*/, "message": "https://hangouts.google.com/hangouts/_/oz-vision.co.jp/system"},
-               {"regex": /.*全社朝会.*/, "message": "https://hangouts.google.com/hangouts/_/oz-vision.co.jp/morningmeeting"},
-               {"regex": /.*(Scrutinizer|スクリューティナイザー|コード品質).*/, "message": "https://scrutinizer-ci.com/dashboard/repositories"}]
 
-  for val in linkTable
-    robot.respond val.regex, (msg) ->
-      msg.send val.message
+  robot.respond /.*結合度.*/, (msg) ->
+    msg.send 'https://ja.m.wikipedia.org/wiki/結合度'
+
+  robot.respond /.*凝集度.*/, (msg) ->
+    msg.send 'https://ja.m.wikipedia.org/wiki/凝集度'
+
+  robot.respond /.*(システム|開発|制作開発)朝会.*/, (msg) ->
+    msg.send 'https://hangouts.google.com/hangouts/_/oz-vision.co.jp/system'
+
+  robot.respond /.*全社朝会.*/, (msg) ->
+    msg.send 'https://hangouts.google.com/hangouts/_/oz-vision.co.jp/morningmeeting'
+
+  robot.respond /.*(Scrutinizer|スクリューティナイザー|コード品質).*/, (msg) ->
+    msg.send 'https://scrutinizer-ci.com/dashboard/repositories'
