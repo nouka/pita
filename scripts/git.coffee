@@ -7,7 +7,7 @@
 module.exports = (robot) ->
 
   robot.respond /open pr (.*?) (.*?)->(.*?)/, (msg) ->
-    repo = res.match[1]
-    from = res.match[2]
-    to   = res.match[3]
-    res.send 'https://github.com/oz-sysb/#{repo}/compare/#{to}...#{from}?expand=1'
+    repo = msg.match[1]
+    from = msg.match[2]
+    to   = msg.match[3]
+    msg.send 'https://github.com/oz-sysb/#{repo}/compare/#{to}...#{from}?expand=1'
