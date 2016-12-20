@@ -12,14 +12,14 @@ module.exports = (robot) ->
 
   robot.respond /.*(おはよう|お早う|good morning).*/, (msg) ->
     date = new Date()
-    msg.send 'おはようございます、' + msg.message.user.name + 'さん。\n出勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。'
+    msg.send 'おはようございます、' + msg.message.user.name + 'さん。\n出勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。\nhttp://www3.kinta.ne.jp/kinta2/tr/'
 
   robot.respond /.*こんにち(は|わ).*/, (msg) ->
     msg.send 'こんにちは、' + msg.message.user.name + 'さん。'
 
   robot.respond /.*((お疲れ|おつかれ)(さま|様)|オツカレ).*/, (msg) ->
     date = new Date()
-    msg.send 'お疲れ様でした、' + msg.message.user.name + 'さん。\n退勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。'
+    msg.send 'お疲れ様でした、' + msg.message.user.name + 'さん。\n退勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。\nhttp://www3.kinta.ne.jp/kinta2/tr/'
 
   robot.respond /.*(おやすみ|またね).*/, (msg) ->
     msg.send 'おやすみなさい。また明日。'
