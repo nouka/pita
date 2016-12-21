@@ -21,3 +21,7 @@ module.exports = (robot) ->
     repo = msg.match[2]
     id   = msg.match[3]
     mag.send "https://github.com/oz-sysb/#{repo}/issues/#{id}"
+
+  robot.respond /(O|o)pen (I|i)ssue (.*)/i, (msg) ->
+    repo = msg.match[3]
+    msg.send "https://github.com/oz-sysb/#{repo}/issues/new"
