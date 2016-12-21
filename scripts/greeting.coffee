@@ -27,6 +27,9 @@ module.exports = (robot) ->
   robot.respond /.*(ありがと|サンキュー|Thank).*/, (msg) ->
     msg.send 'いえいえ、どういたしまして。'
 
+  robot.respond /.*おかえり.*/, (msg) ->
+    msg.send 'ただいまです。'
+
   robot.respond /.*(元気|げんき|ゲンキ).*？/, (msg) ->
     msg.send 'まあまあです。'
 
