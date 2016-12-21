@@ -10,14 +10,14 @@ request = require('request')
 
 module.exports = (robot) ->
 
-  robot.hear /.*(おはよ|お早う|good morning).*/, (msg) ->
+  robot.respond /.*(おはよ|お早う|good morning).*/, (msg) ->
     date = new Date()
     msg.send 'おはようございます、' + msg.message.user.name + 'さん。\n出勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。\nhttp://www3.kinta.ne.jp/kinta2/tr/'
 
-  robot.hear /.*こんにち(は|わ).*/, (msg) ->
+  robot.respond /.*こんにち(は|わ).*/, (msg) ->
     msg.send 'こんにちは、' + msg.message.user.name + 'さん。'
 
-  robot.hear /.*((お疲れ|おつかれ)(さま|様)|オツカレ).*/, (msg) ->
+  robot.respond /.*((お疲れ|おつかれ)(さま|様)|オツカレ).*/, (msg) ->
     date = new Date()
     msg.send 'お疲れ様でした、' + msg.message.user.name + 'さん。\n退勤時間は' + date.getHours() + ':' + date.getMinutes() + 'です。\nhttp://www3.kinta.ne.jp/kinta2/tr/'
 
