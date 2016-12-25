@@ -32,7 +32,3 @@ module.exports = (robot) ->
 
   robot.respond /.*(お腹|ハラ|腹)(すいた|減った|へった|ヘッタ).*/, (msg) ->
     msg.reply 'ボクもヘッタ'
-
-  robot.respond /hipchat/, (msg) ->
-    msg.reply msg.message
-
