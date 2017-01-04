@@ -16,13 +16,11 @@ jenkinsUrl = (repo) ->
 repositoryName = (repo) ->
   repo.charAt(0).toUpperCase() + repo.slice(1)
 
-environmentName = (env) ->
-  environment = {
-                  "dev"  : "Demo",
-                  "stage": "Staging",
-                  "prod" : "Production"
+environments = {
+                 dev  : "Demo"
+                 stage: "Staging"
+                 prod : "Production"
                }
-  environment[env]
 
 module.exports = (robot) ->
 
@@ -38,7 +36,7 @@ module.exports = (robot) ->
     if (availableRepo.indexOf(repo) < 0)
       return msg.send("指定されたリポジトリは対応していません。")
 
-    jobName = repositoryName(repo) + "-" + environmentName(env) + "-Deploy"
+    jobName = repositoryName(repo) + "-" + environments[env] + "-Deploy"
     if (repo != "woodstock" || env != "dev")
       jobName += "-Cap"
 
@@ -51,4 +49,13 @@ module.exports = (robot) ->
     if (availableRepo.indexOf(repo) < 0)
       return msg.send("指定したリポジトリは対応していません。")
 
-    msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-UnitTest"
+    msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-UnitTest/"
+
+  robot.respond /(E2E|e2e)(T| t)est (.*)/i, (msg) ->
+    repo = msg.match[3]
+
+    availableRepo = ['apollo']
+    if (availableRepo.indexOf(repo) < 0)
+      return msg.send("指定したリポジトリは対応していません。")
+
+    msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-E2E-Test/"
