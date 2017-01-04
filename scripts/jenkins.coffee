@@ -3,6 +3,27 @@
 #
 # Commands:
 #   hubot Deploy {env} {repo} - env環境に向けてデプロイしてくれます
+jenkinsUrl = (repo) ->
+  protocol = "https"
+  hostName = "hapitas.jp"
+  port = 54435
+  if (repo == "apollo")
+    subDomain = "ci03"
+  else
+    subDomain = "ci02"
+  protocol + "://" + subDomain + "." + hostName + ":" + port
+
+repositoryName = (repo) ->
+  repo.charAt(0).toUpperCase() + repo.slice(1)
+
+environmentName = (env) ->
+  environment = {
+                  "dev"  : "Demo",
+                  "stage": "Staging",
+                  "prod" : "Production"
+               }
+  environment[env]
+
 module.exports = (robot) ->
 
   robot.respond /(D|d)eploy (.*) (.*)/i, (msg) ->
@@ -17,25 +38,17 @@ module.exports = (robot) ->
     if (availableRepo.indexOf(repo) < 0)
       return msg.send("指定されたリポジトリは対応していません。")
 
-    protocol = "https"
-    hostName = "hapitas.jp"
-    port = 54435
-
-    if (repo == "apollo")
-      subDomain = "ci03"
-    else
-      subDomain = "ci02"
-
-    repositoryName = repo.charAt(0).toUpperCase() + repo.slice(1)
-    environment = {
-                     "dev"  : "Demo",
-                     "stage": "Staging",
-                     "prod" : "Production"
-                  }
-    jobName = repositoryName + "-" + environment[env] + "-Deploy"
+    jobName = repositoryName(repo) + "-" + environmentName(env) + "-Deploy"
     if (repo != "woodstock" || env != "dev")
       jobName += "-Cap"
 
-    url = protocol + "://" + subDomain + "." + hostName + ":" + port + "/job/" + jobName + "/"
+    msg.send jenkinsUrl(repo) + "/job/" + jobName + "/"
 
-    msg.send url
+  robot.respond /(U|u)nit(T| t)est (.*)/i, (msg) ->
+    repo = msg.match[3]
+
+    availableRepo = ['apollo']
+    if (availableRepo.indexOf(repo) < 0)
+      return msg.send("指定したリポジトリは対応していません。")
+
+    msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-UnitTest"
