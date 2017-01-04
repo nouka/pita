@@ -11,10 +11,31 @@ module.exports = (robot) ->
 
     availableEnv = ['dev', 'stage', 'prod']
     if (availableEnv.indexOf(env) < 0)
-        msg.send "環境名が違います。"
+      msg.send "環境名が違います。"
 
     availableRepo = ['woodstock', 'spitz', 'apollo', 'iron']
     if (availableRepo.indexOf(repo) < 0)
-        msg.send "指定されたリポジトリは対応していません。"
+      msg.send "指定されたリポジトリは対応していません。"
 
-    msg.send ""
+    protocol = "https"
+    hostName = "hapitas.jp"
+    port = 54435
+
+    if (repo == "apollo")
+      subDomain = "ci03"
+    else
+      subDomain = "ci02"
+
+    repositoryName = repo.charAt(0).toUpperCase() + repo.slice(1)
+    environment = {
+                     "dev"  : "Demo",
+                     "stage": "Staging",
+                     "prod" : "Production"
+                  }
+    jobName = repositoryName + "-" + environment[repo] + "-Deploy"
+    if (repo == "apollo")
+      jobName += "-Cap"
+
+    url = protocol + "://" + subDomain + "." + hostName + ":" + port + "/job/" + jobName + "/"
+
+    msg.send url
