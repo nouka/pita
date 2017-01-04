@@ -33,7 +33,7 @@ module.exports = (robot) ->
                      "prod" : "Production"
                   }
     jobName = repositoryName + "-" + environment[env] + "-Deploy"
-    if (repo != "woodstock" && env != "dev")
+    if (repo != "woodstock" || env != "dev")
       jobName += "-Cap"
 
     url = protocol + "://" + subDomain + "." + hostName + ":" + port + "/job/" + jobName + "/"
