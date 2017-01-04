@@ -32,7 +32,7 @@ module.exports = (robot) ->
                      "stage": "Staging",
                      "prod" : "Production"
                   }
-    jobName = repositoryName + "-" + environment[repo] + "-Deploy"
+    jobName = repositoryName + "-" + environment[env] + "-Deploy"
     if (repo == "apollo")
       jobName += "-Cap"
 
