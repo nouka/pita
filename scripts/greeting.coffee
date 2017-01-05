@@ -33,5 +33,5 @@ module.exports = (robot) ->
   robot.respond /.*(お腹|ハラ|はら|腹)(すいた|減った|へった|ヘッタ).*/, (msg) ->
     msg.reply 'ボクもヘッタ'
 
-  robot.respond /.*なんだと思う？/, (msg) ->
+  robot.respond /.*(なん|何)だと(思|おも)(う|いますか)？/, (msg) ->
     msg.reply 'さあね？'
