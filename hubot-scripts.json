@@ -1,3 +1,6 @@
 [
-  "github-pulls.coffee"
+  "github-pulls.coffee",
+  "github-status.coffee",
+  "github-search.coffee",
+  "github-credentials.coffee"
 ]
