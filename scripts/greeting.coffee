@@ -39,5 +39,5 @@ module.exports = (robot) ->
   robot.respond /.*おめでとう言って.*/, (msg) ->
     msg.send '入江さん、おめでとうございます！'
 
-  robot.respond /.*やったよ！.*/, (msg) ->
+  robot.respond /.*やった(よ！|ー).*/, (msg) ->
     msg.send 'PRTのみなさん、おめでとうございます！'
