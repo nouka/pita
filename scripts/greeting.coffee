@@ -36,8 +36,9 @@ module.exports = (robot) ->
   robot.respond /.*(なん|何)だと(思|おも)(う|いますか)？/, (msg) ->
     msg.reply 'さあね？'
 
-  robot.respond /.*おめでとう言って.*/, (msg) ->
-    msg.send '入江さん、おめでとうございます！'
+  robot.respond /(.*)さんに、おめでとう言って.*/, (msg) ->
+    name = msg.match[1]
+    msg.send "{#name}さん、おめでとうございます！"
 
   robot.respond /.*やった(よ！|ー).*/, (msg) ->
-    msg.send 'PRTのみなさん、おめでとうございます！'
+    msg.respond 'やりましたね！'
