@@ -9,7 +9,6 @@
 #
 # Author:
 #   かばやき <@kbyk_01>
-#   noka <@noka_blank>
 #
 
 module.exports = (robot) ->
