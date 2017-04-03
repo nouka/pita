@@ -7,6 +7,6 @@
 
 module.exports = (robot) ->
 
-  robot.respond /^wiki (.*)/i, (msg) ->
+  robot.respond /wiki (.*)/i, (msg) ->
     word = msg.match[1]
     msg.send "https://ja.m.wikipedia.org/wiki/#{word}"

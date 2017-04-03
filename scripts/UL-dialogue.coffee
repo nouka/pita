@@ -13,8 +13,9 @@
 
 module.exports = (robot) ->
 
-  robot.respond /^([^a-z]*)/i, (res) ->
+  robot.respond /([^a-z]*)/i, (res) ->
     message = res.match[1]
+    console.log(message)
     return if message is ''
 
     res

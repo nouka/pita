@@ -24,7 +24,7 @@ environments = {
 
 module.exports = (robot) ->
 
-  robot.respond /^deploy (.*) (.*)/i, (msg) ->
+  robot.respond /deploy (.*) (.*)/i, (msg) ->
     env  = msg.match[1]
     repo = msg.match[2]
 
@@ -42,7 +42,7 @@ module.exports = (robot) ->
 
     msg.send jenkinsUrl(repo) + "/job/" + jobName + "/"
 
-  robot.respond /^unit test (.*)/i, (msg) ->
+  robot.respond /unit test (.*)/i, (msg) ->
     repo = msg.match[1]
 
     availableRepo = ['apollo']
@@ -51,7 +51,7 @@ module.exports = (robot) ->
 
     msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-UnitTest/"
 
-  robot.respond /^e2e test (.*)/i, (msg) ->
+  robot.respond /e2e test (.*)/i, (msg) ->
     repo = msg.match[1]
 
     availableRepo = ['apollo']
