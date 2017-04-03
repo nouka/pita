@@ -12,7 +12,6 @@
 #
 
 module.exports = (robot) ->
-  status  = {}
 
   robot.respond /^([^a-z]*)/i, (res) ->
     message = res.match[1]
