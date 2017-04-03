@@ -5,17 +5,18 @@
 #   HUBOT_UL_API_KEY
 #
 # Commands:
-#   hubot 雑談 <message> - 雑談(UserLocal API)
+#   hubot <message> - コマンドっぽい接頭辞以外で始まった文章に人工知能が返信する
 #
 # Author:
 #   かばやき <@kbyk_01>
+#   noka <@noka_blank>
 #
 
 module.exports = (robot) ->
   status  = {}
 
-  robot.respond /(?:雑談\s+|(?:(?:(様|さま|サマ|殿|どの|さん|サン|はん|どん|やん|ちゃん|チャン|氏|君|くん|クン|たん|タン|先生|せんせ(?:い|ー))(?:、|。|!|！)?))|(?:(?:、|。|!|！)\s*))(.*)/, (res) ->
-    message = res.match[2]
+  robot.respond /^[^a-zA-Z0-9](.*)/, (res) ->
+    message = res.match[1]
     return if message is ''
 
     res

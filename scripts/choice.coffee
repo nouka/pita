@@ -5,13 +5,13 @@
 #   None
 #
 # Commands:
-#   <item1>、<item2>、<item3>から選んで - choose at random
+#   choice <item1>、<item2>、<item3> - choose at random
 #
 # Author:
 #   bouzuya <m@bouzuya.net>
 
 module.exports = (robot) ->
-  robot.respond /(.+)から選んで/, (msg) ->
+  robot.respond /^choice (.+)/, (msg) ->
     items = msg.match[1].split(/[　・、\s]+/)
     item = msg.random items
-    msg.reply "#{item}です"
+    msg.reply "#{item}"
