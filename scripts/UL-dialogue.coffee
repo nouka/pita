@@ -15,7 +15,7 @@
 module.exports = (robot) ->
   status  = {}
 
-  robot.respond /^(?![a-zA-Z].*)/, (res) ->
+  robot.respond /^(?![a-zA-Z])(.*)/, (res) ->
     message = res.match[1]
     return if message is ''
 
