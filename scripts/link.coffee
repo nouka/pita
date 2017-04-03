@@ -7,14 +7,14 @@
 
 module.exports = (robot) ->
 
-  robot.respond /.*(システム|開発|制作開発)朝会.*/, (msg) ->
+  robot.respond /(システム|開発|制作開発)朝会/, (msg) ->
     msg.send 'https://hangouts.google.com/hangouts/_/oz-vision.co.jp/system'
 
-  robot.respond /.*全社朝会.*/, (msg) ->
+  robot.respond /全社朝会/, (msg) ->
     msg.send 'https://hangouts.google.com/hangouts/_/oz-vision.co.jp/morningmeeting'
 
-  robot.respond /.*(Scruti|スクリュー|品質).*/, (msg) ->
+  robot.respond /(Scruti|スクリュー|品質)/, (msg) ->
     msg.send 'https://scrutinizer-ci.com/dashboard/repositories'
 
-  robot.respond /.*朝会資料.*/, (msg) ->
+  robot.respond /朝会資料/, (msg) ->
     msg.send 'http://qiita.com/nouka/items/a1677b581abd9d99958b'

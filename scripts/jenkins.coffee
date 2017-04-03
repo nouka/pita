@@ -24,9 +24,9 @@ environments = {
 
 module.exports = (robot) ->
 
-  robot.respond /^(D|d)eploy (.*) (.*)/i, (msg) ->
-    env  = msg.match[2]
-    repo = msg.match[3]
+  robot.respond /^deploy (.*) (.*)/i, (msg) ->
+    env  = msg.match[1]
+    repo = msg.match[2]
 
     availableEnv = ['dev', 'stage', 'prod']
     if (availableEnv.indexOf(env) < 0)
@@ -42,8 +42,8 @@ module.exports = (robot) ->
 
     msg.send jenkinsUrl(repo) + "/job/" + jobName + "/"
 
-  robot.respond /^(U|u)nit(T| t)est (.*)/i, (msg) ->
-    repo = msg.match[3]
+  robot.respond /^unit test (.*)/i, (msg) ->
+    repo = msg.match[1]
 
     availableRepo = ['apollo']
     if (availableRepo.indexOf(repo) < 0)
@@ -51,8 +51,8 @@ module.exports = (robot) ->
 
     msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-UnitTest/"
 
-  robot.respond /^(E2E|e2e)(T| t)est (.*)/i, (msg) ->
-    repo = msg.match[3]
+  robot.respond /^e2e test (.*)/i, (msg) ->
+    repo = msg.match[1]
 
     availableRepo = ['apollo']
     if (availableRepo.indexOf(repo) < 0)
