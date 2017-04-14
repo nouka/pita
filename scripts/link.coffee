@@ -4,14 +4,13 @@
 # Commands:
 #   hubot 結合度 - 結合度のWikiページを返してくれます
 #   hubot 凝集度 - 凝集度のWikiページを返してくれます
+#   hubot hangout #{room} - room(system, morningmeeting, toC)
 
 module.exports = (robot) ->
 
-  robot.respond /(システム|開発|制作開発)朝会/, (msg) ->
-    msg.send 'https://hangouts.google.com/hangouts/_/oz-vision.co.jp/system'
-
-  robot.respond /全社朝会/, (msg) ->
-    msg.send 'https://hangouts.google.com/hangouts/_/oz-vision.co.jp/morningmeeting'
+  robot.respond /hangout (.*)/i, (msg) ->
+    room = msg.match[1]
+    msg.send "https://hangouts.google.com/hangouts/_/oz-vision.co.jp/#{room}"
 
   robot.respond /(Scruti|スクリュー|品質)/, (msg) ->
     msg.send 'https://scrutinizer-ci.com/dashboard/repositories'
