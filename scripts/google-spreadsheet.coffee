@@ -11,7 +11,7 @@ url = require 'url'
 querystring = require 'querystring'
 
 module.exports = (robot) ->
-  robot.router.post "/hubot/google-spreadsheet", (req, res) ->
+  robot.router.get "/hubot/google-spreadsheet", (req, res) ->
     query = querystring.parse (url.parse req.url).query
     res.end()
 
