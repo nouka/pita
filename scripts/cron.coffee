@@ -10,8 +10,18 @@ module.exports = (robot) ->
     hipchatID = process.env.HUBOT_HIPCHAT_JID
     hipchatID.substr(0, 6) + '_' + name + '@conf.hipchat.com'
 
-  new cronJob('0 10 11 * * 1-5', () ->
-    user = room: getHipChatRoomId('bot_test')
-    message = "cronだよ"
+  # ブランチの最新化を促す
+  new cronJob('0 0 11 * * 1-5', () ->
+    user = room: getHipChatRoomId('to_c_business')
+    message = "@here エンジニア・デザイナーのみなさん、\n"
+    message += "フィーチャーブランチをメインブランチ（releaseなど）と同期してから作業開始しましょう。\n"
+    message += "競合が起きた場合は、近くのエンジニアに相談してください。\n"
+    message += "＜メインブランチとの同期方法＞\n"
+    message += "HipChatで以下のコマンドをpitaにコメントしてください。\n"
+    message += "open pr oz-sysb/[リポジトリ] release->[フィーチャーブランチ]\n"
+    message += "コンソールやGitHub for Windowsで以下の処理を実行してください。\n"
+    message += "git fetch\n"
+    message += "git checkout [フィーチャーブランチ]\n"
+    message += "git pull\n"
     robot.send user, message
   ).start()
