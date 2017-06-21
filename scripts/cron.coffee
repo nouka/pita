@@ -10,13 +10,8 @@ module.exports = (robot) ->
     hipchatID = process.env.HUBOT_HIPCHAT_JID
     hipchatID.substr(0, 6) + '_' + name + '@conf.hipchat.com'
 
-  new cronJob('0 5 11 * * 1-5', () ->
+  new cronJob('0 10 11 * * 1-5', () ->
     user = room: getHipChatRoomId('bot_test')
     message = "cronだよ"
-    try
-      robot.send user, message
-      console.log user
-      console.log message
-    catch error
-      console.log "notifier error: #{error}. Request: #{req.body}"
+    robot.send user, message
   ).start()
