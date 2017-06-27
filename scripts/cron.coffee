@@ -25,3 +25,11 @@ module.exports = (robot) ->
     message += "git pull\n"
     robot.send user, message
   ).start()
+
+  # Wantedlyに応援を促す
+  new cronJob('0 0 17 * * 1-5', () ->
+    user = room: getHipChatRoomId('【all】全員集合')
+    message = "@all 応援よろしくお願いします！\n"
+    message += "https://www.wantedly.com/companies/ozvisionrecruit/projects"
+    robot.send user, message
+  ).start()
