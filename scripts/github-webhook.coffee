@@ -11,7 +11,7 @@ module.exports = (robot) ->
     hipchatID.substr(0, 6) + '_' + name + '@conf.hipchat.com'
 
   isValidSign = (sign, body) ->
-    secret = process.env.HUBOT_GITHUB_WEBHOOK_SECRET
+    secret = process.env.HUBOT_GITHUB_SECRET
     hmac = crypto.createHmac 'sha1', secret
     hmac.update JSON.stringify(body), 'utf-8'
     hash = hmac.digest 'hex'
