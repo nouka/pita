@@ -14,7 +14,7 @@ module.exports = (robot) ->
     event_type = req.get 'X-Github-Event'
     signature = req.get 'X-Hub-Signature'
 
-    unless isCorrectSignature signature, req.body
+    unless isValidSign signature, req.body
       res.status(401).send 'unauthorized'
       return
 
@@ -30,15 +30,12 @@ module.exports = (robot) ->
     else
       res.status(200).send 'ok'
 
-    isCorrectSignature = (signature, body) ->
-      pairs = signature.split '='
-      digest_method = pairs[0]
-      hmac = crypto.createHmac digest_method, process.env.HUBOT_GITHUB_SECRET
+    isValidSign = (sign, body) ->
+      secret = process.env.HUBOT_GITHUB_WEBHOOK_SECRET
+      hmac = crypto.createHmac 'sha1', secret
       hmac.update JSON.stringify(body), 'utf-8'
-      hashed_data = hmac.digest 'hex'
-      generated_signature = [digest_method, hashed_data].join '='
-
-      return signature is generated_signature
+      hash = hmac.digest 'hex'
+      generated_signature = "sha1=#{hash}"
 
     messageForPullRequest = (json) ->
       action = json.action
