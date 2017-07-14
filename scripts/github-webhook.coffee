@@ -4,7 +4,7 @@
 # Notes:
 #   Pull Request, Issueが対象
 crypto = require 'crypto'
-hipchat = require 'hipchat'
+hipchat = require('./hipchat.coffee')
 
 module.exports = (robot) ->
   isValidSign = (sign, body) ->

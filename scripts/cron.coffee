@@ -4,7 +4,7 @@
 # Commands:
 #   None
 cronJob = require('cron').CronJob
-hipchat = require 'hipchat'
+hipchat = require('./hipchat.coffee')
 
 module.exports = (robot) ->
   # ブランチの最新化を促す
