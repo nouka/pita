@@ -20,10 +20,10 @@ module.exports = (robot) ->
 
     switch action
       when 'opened'
-        "#{pr.user.login}さんからPull Requestをもらいました\n#{pr.title}\n#{pr.html_url}"
+        "@all #{pr.user.login}さんからPull Requestをもらいました\n#{pr.title}\n#{pr.html_url}"
       when 'closed'
         if pr.merged
-          "#{pr.user.login}さんのPull Requestをマージしました\n#{pr.title}\n#{pr.html_url}"
+          "@all #{pr.user.login}さんのPull Requestをマージしました\n#{pr.title}\n#{pr.html_url}"
 
   messageForIssues = (json) ->
     action = json.action
@@ -31,9 +31,9 @@ module.exports = (robot) ->
 
     switch action
       when 'opened'
-        "#{issue.user.login}さんがIssueを上げました\n#{issue.title}\n#{issue.html_url}"
+        "@all #{issue.user.login}さんがIssueを上げました\n#{issue.title}\n#{issue.html_url}"
       when 'closed'
-        "#{issue.user.login}さんのIssueがcloseされました\n#{issue.title}\n#{issue.html_url}"
+        "@all #{issue.user.login}さんのIssueがcloseされました\n#{issue.title}\n#{issue.html_url}"
 
   robot.router.post "/github/webhook", (req, res) ->
     event_type = req.get 'X-Github-Event'
