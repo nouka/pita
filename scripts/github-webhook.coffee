@@ -4,12 +4,9 @@
 # Notes:
 #   Pull Request, Issueが対象
 crypto = require 'crypto'
+hipchat = require 'hipchat'
 
 module.exports = (robot) ->
-  getHipChatRoomId = (name) ->
-    hipchatID = process.env.HUBOT_HIPCHAT_JID
-    hipchatID.substr(0, 6) + '_' + name + '@conf.hipchat.com'
-
   isValidSign = (sign, body) ->
     secret = process.env.HUBOT_GITHUB_SECRET
     hmac = crypto.createHmac 'sha1', secret
@@ -53,7 +50,7 @@ module.exports = (robot) ->
         messageForPullRequest req.body
 
     if message?
-      robot.send {room: getHipChatRoomId('bot_test')}, message
+      robot.send {room: hipchat.getHipChatRoomId('bot_test')}, message
       res.status(201).send 'created'
     else
       res.status(200).send 'ok'
