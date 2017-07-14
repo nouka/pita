@@ -50,7 +50,7 @@ module.exports = (robot) ->
         messageForPullRequest req.body
 
     if message?
-      robot.send {room: hipchat.getHipChatRoomId('bot_test')}, message
+      robot.send {room: hipchat.getHipChatRoomId('to_c_business')}, message
       res.status(201).send 'created'
     else
       res.status(200).send 'ok'
