@@ -30,7 +30,7 @@ module.exports = (robot) ->
         if (list.name == name)
           return list.id
 
-  robot.respond /^trello add todo (.*)/i, (msg) ->
+  robot.respond /trello add todo (.*)/, (msg) ->
     title = "#{msg.match[1]}"
     boardId = findBoardByName('ノーカのボード')
     listId = findListByName(boardId, 'ToDo')
