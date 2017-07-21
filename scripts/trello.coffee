@@ -20,17 +20,17 @@ module.exports = (robot) ->
     boardName = "To C business 開発タスクボード"
     listName = msg.match[1]
     title = "#{msg.match[2]}"
-    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, data) ->
+    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
         console.log(err)
         return
-      for board in data
+      for board in boards
         if (board.name == boardName)
-          trello.get "/1/boards/#{board.id}/lists", {"fields": ["name"]}, (err, data) ->
+          trello.get "/1/boards/#{board.id}/lists", {"fields": ["name"]}, (err, lists) ->
             if err
               console.log(err)
               return
-            for list in data
+            for list in lists
               if (list.name == listName)
                 trello.post "/1/cards", {name: title, idList: list.id}, (err, data) ->
                   if err
@@ -42,22 +42,22 @@ module.exports = (robot) ->
   robot.respond /daily scrum/, (msg) ->
     boardName = "ノーカのボード"
     cardName = "日報（テンプレ）"
-    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, data) ->
+    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
         console.log(err)
         return
-      for board in data
+      for board in boards
         if (board.name == boardName)
-          trello.get "/1/boards/#{board.id}/cards", {"fields": ["name"]}, (err, data) ->
+          trello.get "/1/boards/#{board.id}/cards", {"fields": ["name"]}, (err, cards) ->
             if err
               console.log(err)
               return
-            for card in data
+            for card in cards
               if (card.name == cardName)
                 trello.get "/1/cards/#{card.id}/desc", {}, (err, data) ->
+                  console.log(data)
                   if err
                     console.log(err)
                     msg.send "取得に失敗しました"
                     return
-                  console.log(data)
                   msg.send data.value
