@@ -36,6 +36,7 @@ module.exports = (robot) ->
     listId = findListByName(boardId, 'ToDo')
     trello.post "/1/cards", {name: title, idList: listId}, (err, data) ->
       if err
+        console.log(err)
         msg.send "保存に失敗しました"
         return
       msg.send "「#{title}」 をTrelloのToDoボードに保存しました"
