@@ -5,6 +5,7 @@
 #   HUBOT_TRELLO_KEY, HUBOT_TRELLO_TOKEN
 #
 # Commands:
+#   trello add #{listName} #{title} - #{listName}に#{title}カードを追加する
 #
 Trello = require('node-trello')
 
@@ -14,43 +15,25 @@ module.exports = (robot) ->
     process.env.HUBOT_TRELLO_TOKEN
   )
 
-  findBoardByName = (name) ->
-    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, data) ->
-      if err
-        return err
-      for board in data
-        console.log(board)
-        if (board.name == name)
-          return board.id
-
-  findListByName = (boardId, name) ->
-    trello.get "/1/boards/#{boardId}/lists", {"fields": ["name"]}, (err, data) ->
-      if err
-        return err
-      for list in data
-        console.log(list)
-        if (list.name == name)
-          return list.id
-
-  robot.respond /trello add todo (.*)/, (msg) ->
-    title = "#{msg.match[1]}"
+  robot.respond /trello add (.*) (.*)/, (msg) ->
+    boardName = "To C business 開発タスクボード"
+    listName = msg.match[1]
+    title = "#{msg.match[2]}"
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, data) ->
       if err
         console.log(err)
         return
       for board in data
-        if (board.name == 'ノーカのボード')
-          boardId = board.id
-          trello.get "/1/boards/#{boardId}/lists", {"fields": ["name"]}, (err, data) ->
+        if (board.name == boardName)
+          trello.get "/1/boards/#{board.id}/lists", {"fields": ["name"]}, (err, data) ->
             if err
               console.log(err)
               return
             for list in data
-              if (list.name == 'ToDo')
-                listId = list.id
-                trello.post "/1/cards", {name: title, idList: listId}, (err, data) ->
+              if (list.name == listName)
+                trello.post "/1/cards", {name: title, idList: list.id}, (err, data) ->
                   if err
                     console.log(err)
                     msg.send "保存に失敗しました"
                     return
-                  msg.send "「#{title}」 をTrelloのToDoボードに保存しました"
+                  msg.send "「#{title}」をToDoに追加しました。"
