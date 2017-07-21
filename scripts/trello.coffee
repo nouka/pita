@@ -34,13 +34,23 @@ module.exports = (robot) ->
 
   robot.respond /trello add todo (.*)/, (msg) ->
     title = "#{msg.match[1]}"
-    boardId = findBoardByName('ノーカのボード')
-    console.log(boardId)
-    listId = findListByName(boardId, 'ToDo')
-    console.log(listId)
-    trello.post "/1/cards", {name: title, idList: listId}, (err, data) ->
+    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, data) ->
       if err
         console.log(err)
-        msg.send "保存に失敗しました"
         return
-      msg.send "「#{title}」 をTrelloのToDoボードに保存しました"
+      for board in data
+        if (board.name == 'ノーカのボード')
+          boardId = board.id
+          trello.get "/1/boards/#{boardId}/lists", {"fields": ["name"]}, (err, data) ->
+            if err
+              console.log(err)
+              return
+            for list in data
+              if (list.name == 'ToDo')
+                listId = list.id
+                trello.post "/1/cards", {name: title, idList: listId}, (err, data) ->
+                  if err
+                    console.log(err)
+                    msg.send "保存に失敗しました"
+                    return
+                  msg.send "「#{title}」 をTrelloのToDoボードに保存しました"
