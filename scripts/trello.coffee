@@ -54,7 +54,7 @@ module.exports = (robot) ->
               return
             for card in data
               if (card.name == cardName)
-                trello.get "/1/cards/#{card.id}/descData", {}, (err, data) ->
+                trello.get "/1/cards/#{card.id}/desc", {}, (err, data) ->
                   if err
                     console.log(err)
                     msg.send "取得に失敗しました"
