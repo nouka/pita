@@ -59,4 +59,5 @@ module.exports = (robot) ->
                     console.log(err)
                     msg.send "取得に失敗しました"
                     return
+                  console.log(data)
                   msg.send data.value
