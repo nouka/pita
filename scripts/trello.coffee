@@ -19,6 +19,7 @@ module.exports = (robot) ->
       if err
         return err
       for board in data
+        console.log(board)
         if (board.name == name)
           return board.id
 
@@ -27,6 +28,7 @@ module.exports = (robot) ->
       if err
         return err
       for list in data
+        console.log(list)
         if (list.name == name)
           return list.id
 
