@@ -33,7 +33,9 @@ module.exports = (robot) ->
   robot.respond /trello add todo (.*)/, (msg) ->
     title = "#{msg.match[1]}"
     boardId = findBoardByName('ノーカのボード')
+    console.log(boardId)
     listId = findListByName(boardId, 'ToDo')
+    console.log(listId)
     trello.post "/1/cards", {name: title, idList: listId}, (err, data) ->
       if err
         console.log(err)
