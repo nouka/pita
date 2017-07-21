@@ -15,7 +15,7 @@ module.exports = (robot) ->
   )
 
   findBoardByName = (name) ->
-    trello.get "/1/members/me/boards", {}, (err, data) ->
+    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, data) ->
       if err
         return err
       for board in data
@@ -24,7 +24,7 @@ module.exports = (robot) ->
           return board.id
 
   findListByName = (boardId, name) ->
-    trello.get "/1/boards/#{boardId}/lists", {}, (err, data) ->
+    trello.get "/1/boards/#{boardId}/lists", {"fields": ["name"]}, (err, data) ->
       if err
         return err
       for list in data
