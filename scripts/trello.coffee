@@ -6,6 +6,7 @@
 #
 # Commands:
 #   trello add #{listName} #{title} - #{listName}に#{title}カードを追加する
+#   trello new sprint - Doneのリストをアーカイブし、空のDoneリストを用意する
 #   daily scrum - 朝会用のコメントを取得する
 #
 Trello = require('node-trello')
@@ -38,6 +39,30 @@ module.exports = (robot) ->
                     msg.send "保存に失敗しました"
                     return
                   msg.send "「#{title}」をToDoに追加しました。"
+
+  robot.respond /trello new sprint/, (msg) ->
+    boardName = "ノーカのボード"
+    trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
+      if err
+        console.log(err)
+        return
+      for board in boards
+        if (board.name == boardName)
+          trello.get "/1/boards/#{board.id}/lists", {"fields": ["name"]}, (err, lists) ->
+            if err
+              console.log(err)
+              return
+            for list in lists
+              if (list.name.match(/^Done/) != null)
+                trello.put "/1/lists/#{list.id}/name", {"value": "変更しました"}, (err, data) ->
+                if err
+                  console.log(err)
+                  return
+            trello.post "/1/lists", {"name": "Done", "idBoard": board.id, "pos": "bottom"}, (err, data) ->
+              if err
+                console.log(err)
+                return
+              msg.send "次スプリントの準備ができました。"
 
   robot.respond /daily scrum/, (msg) ->
     boardName = "ノーカのボード"
