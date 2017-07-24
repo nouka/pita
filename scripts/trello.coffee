@@ -89,6 +89,7 @@ module.exports = (robot) ->
         console.log(err)
         return
       for board in boards
+        console.log(board.name)
         if (board.name == boardName)
           trello.get "/1/boards/#{board.id}/cards", {"fields": ["name"]}, (err, cards) ->
             if err
