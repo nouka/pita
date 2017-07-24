@@ -5,8 +5,8 @@
 #   HUBOT_TRELLO_KEY, HUBOT_TRELLO_TOKEN
 #
 # Commands:
-#   trello add #{listName} #{title} - #{listName}に#{title}カードを追加する
-#   trello new sprint - Doneのリストをアーカイブし、空のDoneリストを用意する
+#   trello add #{boardName} #{listName} #{title} - #{boardName}の#{listName}に#{title}カードを追加する
+#   trello new sprint #{boardName} - #{boardName}のDoneのリストをアーカイブし、空のDoneリストを用意する
 #   trello get #{boardName} #{cardName} - カードを指定してディスクリプションを表示する
 #
 Trello = require('node-trello')
@@ -17,10 +17,10 @@ module.exports = (robot) ->
     process.env.HUBOT_TRELLO_TOKEN
   )
 
-  robot.respond /trello add (.*) (.*)/, (msg) ->
-    boardName = "To C business 開発タスクボード"
-    listName = msg.match[1]
-    title = "#{msg.match[2]}"
+  robot.respond /trello add (.*) (.*) (.*)/, (msg) ->
+    boardName = "#{msg.match[1]}"
+    listName = "#{msg.match[2]}"
+    title = "#{msg.match[3]}"
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
         console.log(err)
@@ -40,7 +40,7 @@ module.exports = (robot) ->
                     return
                   msg.send "「#{title}」をToDoに追加しました。"
 
-  robot.respond /trello new sprint/, (msg) ->
+  robot.respond /trello new sprint (.*)/, (msg) ->
     getSprintString = ->
       today = new Date()
       date = today.getDate()
@@ -57,7 +57,7 @@ module.exports = (robot) ->
       endMonth = endDate.getMonth() + 1
       return "(" + startMonth + "/" + startDate.getDate() + "-" + endMonth + "/" + endDate.getDate() + ")"
 
-    boardName = "To C business 開発タスクボード"
+    boardName = "#{msg.match[1]}"
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
         console.log(err)
