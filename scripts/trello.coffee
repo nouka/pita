@@ -57,7 +57,7 @@ module.exports = (robot) ->
       endMonth = endDate.getMonth() + 1
       return "(" + startMonth + "/" + startDate.getDate() + "-" + endMonth + "/" + endDate.getDate() + ")"
 
-    boardName = "ノーカのボード"
+    boardName = "To C business 開発タスクボード"
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
         console.log(err)
