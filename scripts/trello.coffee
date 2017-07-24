@@ -41,6 +41,24 @@ module.exports = (robot) ->
                   msg.send "「#{title}」をToDoに追加しました。"
 
   robot.respond /trello new sprint/, (msg) ->
+    getSprintString ->
+      today = new Date()
+      date = today.getDate()
+      day = today.getDay()
+      if (day >= 3) {
+          start = date - day + 3
+      } else {
+          start = date - day - 4
+      }
+      if (day >= 3) {
+          end = date - day + 2 + 7
+      } else {
+          end = date - day - 3 - 7
+      }
+      startDate = new Date(today.getFullYear(), today.getMonth(), start)
+      endDate = new Date(today.getFullYear(), today.getMonth(), end)
+      return "(" + startDate.getMonth() + "/" + startDate.getDate() + "-" + endDate.getMonth() + "/" + endDate.getDate() + ")"
+
     boardName = "ノーカのボード"
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
@@ -58,7 +76,7 @@ module.exports = (robot) ->
                 if err
                   console.log(err)
                   return
-          trello.post "/1/lists", {"name": "Done", "idBoard": board.id, "pos": "bottom"}, (err, data) ->
+          trello.post "/1/lists", {"name": "Done" + getSprintString(), "idBoard": board.id, "pos": "bottom"}, (err, data) ->
             if err
               console.log(err)
               return
