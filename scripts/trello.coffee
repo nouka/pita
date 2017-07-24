@@ -45,16 +45,16 @@ module.exports = (robot) ->
       today = new Date()
       date = today.getDate()
       day = today.getDay()
-      if (day >= 3) {
+      if (day >= 3)
           start = date - day + 3
-      } else {
+      else
           start = date - day - 4
-      }
-      if (day >= 3) {
+
+      if (day >= 3)
           end = date - day + 2 + 7
-      } else {
+      else
           end = date - day - 3 - 7
-      }
+
       startDate = new Date(today.getFullYear(), today.getMonth(), start)
       endDate = new Date(today.getFullYear(), today.getMonth(), end)
       return "(" + startDate.getMonth() + "/" + startDate.getDate() + "-" + endDate.getMonth() + "/" + endDate.getDate() + ")"
