@@ -5,9 +5,9 @@
 #   HUBOT_TRELLO_KEY, HUBOT_TRELLO_TOKEN
 #
 # Commands:
-#   trello add #{boardName} #{listName} #{title} - #{boardName}の#{listName}に#{title}カードを追加する
+#   trello add #{boardName}/#{listName}/#{title} - #{boardName}の#{listName}に#{title}カードを追加する
 #   trello new sprint #{boardName} - #{boardName}のDoneのリストをアーカイブし、空のDoneリストを用意する
-#   trello get #{boardName} #{cardName} - カードを指定してディスクリプションを表示する
+#   trello get #{boardName}/#{cardName} - カードを指定してディスクリプションを表示する
 #
 Trello = require('node-trello')
 
@@ -17,7 +17,7 @@ module.exports = (robot) ->
     process.env.HUBOT_TRELLO_TOKEN
   )
 
-  robot.respond /trello add (.*) (.*) (.*)/, (msg) ->
+  robot.respond /trello add (.*)\/(.*)\/(.*)/, (msg) ->
     boardName = "#{msg.match[1]}"
     listName = "#{msg.match[2]}"
     title = "#{msg.match[3]}"
@@ -80,7 +80,7 @@ module.exports = (robot) ->
               return
             msg.send "次スプリントの準備ができました。"
 
-  robot.respond /trello get (.*) (.*)/, (msg) ->
+  robot.respond /trello get (.*)\/(.*)/, (msg) ->
     boardName = "#{msg.match[1]}"
     cardName = "#{msg.match[2]}"
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
