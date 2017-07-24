@@ -41,7 +41,7 @@ module.exports = (robot) ->
                   msg.send "「#{title}」をToDoに追加しました。"
 
   robot.respond /trello new sprint/, (msg) ->
-    getSprintString ->
+    getSprintString = ->
       today = new Date()
       date = today.getDate()
       day = today.getDay()
