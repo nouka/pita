@@ -7,7 +7,7 @@
 # Commands:
 #   trello add #{listName} #{title} - #{listName}に#{title}カードを追加する
 #   trello new sprint - Doneのリストをアーカイブし、空のDoneリストを用意する
-#   daily scrum - 朝会用のコメントを取得する
+#   trello get #{boardName} #{cardName} - カードを指定してディスクリプションを表示する
 #
 Trello = require('node-trello')
 
@@ -80,9 +80,9 @@ module.exports = (robot) ->
               return
             msg.send "次スプリントの準備ができました。"
 
-  robot.respond /daily scrum/, (msg) ->
-    boardName = "ノーカのボード"
-    cardName = "日報（テンプレ）"
+  robot.respond /trello get (.*) (.*)/, (msg) ->
+    boardName = "#{msg.match[1]}"
+    cardName = "#{msg.match[2]}"
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
         console.log(err)
