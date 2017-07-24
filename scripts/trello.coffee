@@ -58,11 +58,11 @@ module.exports = (robot) ->
                 if err
                   console.log(err)
                   return
-            trello.post "/1/lists", {"name": "Done", "idBoard": board.id, "pos": "bottom"}, (err, data) ->
-              if err
-                console.log(err)
-                return
-              msg.send "次スプリントの準備ができました。"
+          trello.post "/1/lists", {"name": "Done", "idBoard": board.id, "pos": "bottom"}, (err, data) ->
+            if err
+              console.log(err)
+              return
+            msg.send "次スプリントの準備ができました。"
 
   robot.respond /daily scrum/, (msg) ->
     boardName = "ノーカのボード"
