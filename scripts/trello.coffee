@@ -83,6 +83,7 @@ module.exports = (robot) ->
   robot.respond /trello get (.*)\/(.*)/, (msg) ->
     boardName = "#{msg.match[1]}"
     cardName = "#{msg.match[2]}"
+    console.log(boardName)
     trello.get "/1/members/me/boards", {"fields": ["name"]}, (err, boards) ->
       if err
         console.log(err)
