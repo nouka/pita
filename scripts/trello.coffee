@@ -54,7 +54,7 @@ module.exports = (robot) ->
               return
             for list in lists
               if (list.name.match(/^Done/) != null)
-                trello.put "/1/lists/#{list.id}/name", {"value": "変更しました"}, (err, data) ->
+                trello.put "/1/lists/#{list.id}/closed", {"value": true}, (err, data) ->
                 if err
                   console.log(err)
                   return
