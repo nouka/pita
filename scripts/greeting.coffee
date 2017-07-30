@@ -9,16 +9,27 @@ hipchat = require('./hipchat.coffee')
 
 module.exports = (robot) ->
   kintaUrl = "http://www3.kinta.ne.jp/kinta2/tr/"
+  getTime = ->
+    date = new Date()
+    return date.getHours() + ":" + date.getMinutes()
 
   robot.respond /(おはよ|お早う|good morning)/i, (msg) ->
-    date = new Date()
-    message = msg.message.user.name + "さんの出勤時間 " + date.getHours() + ":" + date.getMinutes() + "\n"
+    message = msg.message.user.name + "さんの出勤時間 " + getTime() + "\n"
     message += "#{kintaUrl}"
     msg.reply message
 
   robot.respond /((お疲れ|おつかれ)(さま|様)|オツカレ)/, (msg) ->
-    date = new Date()
-    message = msg.message.user.name + "さんの退勤時間 " + date.getHours() + ":" + date.getMinutes() + "\n"
+    message = msg.message.user.name + "さんの退勤時間 " + getTime() + "\n"
+    message += "#{kintaUrl}"
+    msg.reply message
+
+  robot.respond /休憩入/, (msg) ->
+    message = msg.message.user.name + "さんの休憩時間 " + getTime() + "\n"
+    message += "#{kintaUrl}"
+    msg.reply message
+
+  robot.respond /休憩戻/, (msg) ->
+    message = msg.message.user.name + "さんの戻り時間 " + getTime() + "\n"
     message += "#{kintaUrl}"
     msg.reply message
 
