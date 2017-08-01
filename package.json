@@ -5,6 +5,7 @@
   "author": "ノーカ <t-nouka@oz-vision.co.jp>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
+    "coffee-script": "^1.12.7",
     "cron": "^1.2.1",
     "githubot": "*",
     "hubot": "^2.19.0",
