@@ -1,9 +1,8 @@
 # Description:
-#   HubotがWikiのリンクを教えてくれます
+#   Wikipediaのリンクを返す
 #
 # Commands:
-#   hubot wiki 結合度 - 結合度のWikiページを返してくれます
-#   hubot wiki 凝集度 - 凝集度のWikiページを返してくれます
+#   hubot wiki <word> - wikipediaのリンクを生成して返す
 
 module.exports = (robot) ->
 

@@ -1,15 +1,11 @@
 # Description
-#   A Hubot script to call User Local dialogue API
+#   User Local dialogue API をコールする
 #
 # Configuration:
 #   HUBOT_UL_API_KEY
 #
 # Commands:
 #   hubot <message> - コマンドっぽい接頭辞以外で始まった文章に人工知能が返信する
-#
-# Author:
-#   かばやき <@kbyk_01>
-#
 
 module.exports = (robot) ->
 

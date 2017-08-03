@@ -1,10 +1,8 @@
 # Description:
-#   Hubotが色々なリンクを教えてくれます
+#   リンクを生成して返す
 #
 # Commands:
-#   hubot 結合度 - 結合度のWikiページを返してくれます
-#   hubot 凝集度 - 凝集度のWikiページを返してくれます
-#   hubot hangout #{room} - room(system, morningmeeting, toC)
+#   hubot hangout <room> - ハングアウトのリンクを生成して返す
 
 module.exports = (robot) ->
 

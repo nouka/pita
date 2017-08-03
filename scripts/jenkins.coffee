@@ -1,8 +1,11 @@
 # Description:
-#   Hubotがデプロイの様々な事をやってくれます。
+#   デプロイに関する様々なリンクを生成して返す
 #
 # Commands:
-#   hubot Deploy {env} {repo} - env環境に向けてデプロイしてくれます
+#   hubot deploy <env> <repo> - <env>環境に向けて<repo>をデプロイするリンクを生成して返す
+#   hubot unit test <repo> - UnitTestを実行するジョブのリンクを生成して返す（apolloのみ対応）
+#   hubot e2e test <repo> - E2ETestを実行するジョブのリンクを生成して返す（apolloのみ対応）
+
 jenkinsUrl = (repo) ->
   protocol = "https"
   hostName = "hapitas.jp"

@@ -5,10 +5,10 @@
 #   HUBOT_TRELLO_KEY, HUBOT_TRELLO_TOKEN
 #
 # Commands:
-#   trello add #{boardName}/#{listName}/#{title} - #{boardName}の#{listName}に#{title}カードを追加する
-#   trello new sprint #{boardName} - #{boardName}のDoneのリストをアーカイブし、空のDoneリストを用意する
-#   trello get #{boardName}/#{cardName} - カードを指定してディスクリプションを表示する
-#
+#   hubot trello add <boardName>/<listName>/<title> - <boardName>の<listName>に<title>カードを追加する
+#   hubot trello new sprint <boardName> - <boardName>のDoneのリストをアーカイブし、空のDoneリストを用意する
+#   hubot trello get <boardName>/<cardName> - カードを指定してディスクリプションを表示する
+
 Trello = require('node-trello')
 
 module.exports = (robot) ->

@@ -1,14 +1,8 @@
 # Description
-#   A Hubot script for choosing at random
-#
-# Configuration:
-#   None
+#   選択肢を与えて何かを選択する
 #
 # Commands:
-#   choice <item1>、<item2>、<item3> - choose at random
-#
-# Author:
-#   bouzuya <m@bouzuya.net>
+#   choice <item1>、<item2>、<item3> - 選択肢からランダムに1つ選択して返す
 
 module.exports = (robot) ->
   robot.respond /choice (.+)/i, (msg) ->

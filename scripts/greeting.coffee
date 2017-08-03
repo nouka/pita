@@ -1,9 +1,12 @@
 # Description:
-#   Hubotが挨拶してくれます。
+#   挨拶と勤怠管理
 #
 # Commands:
-#   hubot おはよう - おはようと返してくれます
-#   hubot お疲れ様 - お疲れ様と返してくれます
+#   hubot おはよう - 出勤時間と勤怠管理ツールのリンクを返す
+#   hubot お疲れ様 - 退勤時間と勤怠管理ツールのリンクを返す
+#   hubot 休憩入 - 休憩入り時間と勤怠管理ツールのリンクを返す
+#   hubot 休憩戻 - 休憩戻り時間と勤怠管理ツールのリンクを返す
+
 cronJob = require('cron').CronJob
 hipchat = require('./hipchat.coffee')
 
