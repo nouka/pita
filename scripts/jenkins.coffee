@@ -6,15 +6,7 @@
 #   hubot unit test <repo> - UnitTestを実行するジョブのリンクを生成して返す（apolloのみ対応）
 #   hubot e2e test <repo> - E2ETestを実行するジョブのリンクを生成して返す（apolloのみ対応）
 
-jenkinsUrl = (repo) ->
-  protocol = "https"
-  hostName = "hapitas.jp"
-  port = 54435
-  if (repo == "apollo")
-    subDomain = "ci03"
-  else
-    subDomain = "ci02"
-  protocol + "://" + subDomain + "." + hostName + ":" + port
+ci = require('./ci-tools.coffee')
 
 repositoryName = (repo) ->
   repo.charAt(0).toUpperCase() + repo.slice(1)
@@ -43,7 +35,7 @@ module.exports = (robot) ->
     if (repo != "woodstock" || env != "dev")
       jobName += "-Cap"
 
-    msg.send jenkinsUrl(repo) + "/job/" + jobName + "/"
+    msg.send ci.jenkinsUrl(repo) + "/job/" + jobName + "/"
 
   robot.respond /unit test (.*)/i, (msg) ->
     repo = msg.match[1]
@@ -52,7 +44,7 @@ module.exports = (robot) ->
     if (availableRepo.indexOf(repo) < 0)
       return msg.send("指定したリポジトリは対応していません。")
 
-    msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-UnitTest/"
+    msg.send ci.jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-UnitTest/"
 
   robot.respond /e2e test (.*)/i, (msg) ->
     repo = msg.match[1]
@@ -61,4 +53,4 @@ module.exports = (robot) ->
     if (availableRepo.indexOf(repo) < 0)
       return msg.send("指定したリポジトリは対応していません。")
 
-    msg.send jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-E2E-Test/"
+    msg.send ci.jenkinsUrl(repo) + "/job/" + repositoryName(repo) + "-E2E-Test/"
