@@ -13,7 +13,7 @@ module.exports = (robot) ->
     request.get "https://ja.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=contents&titles=#{keyword}&rvparse", (error, response, body) ->
       if error or response.statusCode != 200
         return msg.send "Wikiの取得に失敗しました。"
-      data = JSON.parse(body)[0]
+      data = JSON.parse body
       console.log(data)
 
     message = "https://ja.wikipedia.org/wiki/#{keyword}"
