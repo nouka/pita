@@ -20,8 +20,8 @@ module.exports = (robot) ->
       if error or response.statusCode != 200
         return msg.send "Wikiの取得に失敗しました。"
       data = JSON.parse body
-      message = ''
       for row in data.query.search
+        message = ''
         message += "#{row.title}\n"
         message += "#{row.snippet}\n"
         message += "https://ja.wikipedia.org/wiki/#{row.title}"
