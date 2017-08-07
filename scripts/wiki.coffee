@@ -10,10 +10,10 @@ module.exports = (robot) ->
     keyword = encodeURIComponent msg.match[1]
 
     request = msg.http("https://ja.wikipedia.org/w/api.php")
-                 .query({format  : json,
-                         action  : query,
-                         prop    : revisions,
-                         rvprop  : contents,
+                 .query({format  : "json",
+                         action  : "query",
+                         prop    : "revisions",
+                         rvprop  : "contents",
                          titles  : keyword,
                          rvparse : true})
                  .get()
