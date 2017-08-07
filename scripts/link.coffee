@@ -10,8 +10,5 @@ module.exports = (robot) ->
     room = msg.match[1]
     msg.send "https://hangouts.google.com/hangouts/_/oz-vision.co.jp/#{room}"
 
-  robot.respond /(Scruti|スクリュー|品質)/, (msg) ->
-    msg.send 'https://scrutinizer-ci.com/dashboard/repositories'
-
   robot.respond /朝会資料/, (msg) ->
     msg.send 'http://qiita.com/nouka/items/a1677b581abd9d99958b'
