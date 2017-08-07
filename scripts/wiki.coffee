@@ -23,6 +23,6 @@ module.exports = (robot) ->
       for row in data.query.search
         message = ''
         message += "#{row.title}\n"
-        message += "/quote #{row.snippet}\n"
+        message += "#{row.snippet}\n"
         message += "https://ja.wikipedia.org/wiki/#{row.title}"
         msg.send message
