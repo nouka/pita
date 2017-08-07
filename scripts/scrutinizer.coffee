@@ -52,6 +52,8 @@ module.exports = (robot) ->
   robot.respond /coverage (.*)/i, (msg) ->
     repo = msg.match[1]
 
+    # ameba, aslan-batch, pandaは未対応
+    availableRepo = ['spitz', 'woodstock', 'mango', 'apollo']
     if (availableRepo.indexOf(repo) < 0)
       return msg.send("指定したリポジトリは対応していません。")
 
