@@ -2,7 +2,7 @@
 #   Wikipediaのリンクを返す
 #
 # Commands:
-#   hubot wiki <word> - wikipediaのリンクを生成して返す
+#   hubot wiki <keyword> - wikipediaのリンクを生成して返す
 
 module.exports = (robot) ->
 
