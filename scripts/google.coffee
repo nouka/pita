@@ -12,6 +12,6 @@ module.exports = (robot) ->
     MongoClient.connect dbHost, (error, db) ->
       collection = db.collection('credentials')
       collection.find().toArray((error, documents) ->
-        console.log(documents)
+        console.log(documents.0.credit)
       )
       msg.send 'test'
