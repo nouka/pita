@@ -13,6 +13,6 @@ module.exports = (robot) ->
       collection = db.collection('credentials')
       collection.find().toArray((error, documents) ->
         for document of documents
-          console.log(document.name)
+          console.log(document)
       )
       msg.send 'test'
