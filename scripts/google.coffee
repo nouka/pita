@@ -15,4 +15,4 @@ module.exports = (robot) ->
         for document of documents
           console.log(document.name)
       )
-      robot.send 'test'
+      msg.send 'test'
