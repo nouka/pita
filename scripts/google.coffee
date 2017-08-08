@@ -10,7 +10,7 @@ dbHost = process.env.MONGODB_URI
 MongoClient.connect dbHost, (error, db) ->
   collection = db.collection('credentials')
   collection.find().toArray((error, documents) ->
-    for (var document of documents)
+    for document of documents
       console.log(document.name)
   )
 
