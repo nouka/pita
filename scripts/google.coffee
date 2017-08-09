@@ -13,8 +13,7 @@ MongoClient.connect dbHost, (error, db) ->
   collection.find().toArray((error, documents) ->
     key = documents[0].credit
   )
-
-jwtClient = new gapi.auth.JWT(key.client_email, null, key.privae_key, ['https://www.googleapis.com/auth/calendar.readonly'], null)
+  jwtClient = new gapi.auth.JWT(key.client_email, null, key.privae_key, ['https://www.googleapis.com/auth/calendar.readonly'], null)
 
 module.exports = (robot) ->
   robot.respond /mongo/i, (msg) ->
