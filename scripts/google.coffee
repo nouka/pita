@@ -15,11 +15,11 @@ module.exports = (robot) ->
       collection = db.collection('credentials')
       collection.find().toArray((error, documents) ->
         key = documents[0].credit
-      )
-      jwtClient = new gapi.auth.JWT(key.client_email, null, key.privae_key, ['https://www.googleapis.com/auth/calendar.readonly'], null)
-      jwtClient.authorize((err, tokens) ->
-        if (err)
-          console.log(err)
-          return
-        console.log(tokens)
+        jwtClient = new gapi.auth.JWT(key.client_email, null, key.privae_key, ['https://www.googleapis.com/auth/calendar.readonly'], null)
+        jwtClient.authorize((err, tokens) ->
+          if (err)
+            console.log(err)
+            return
+          console.log(tokens)
+        )
       )
