@@ -7,6 +7,7 @@
 MongoClient = require('mongodb').MongoClient
 dbHost = process.env.MONGODB_URI
 gapi = require('googleapis')
+jwtClient = {}
 
 MongoClient.connect dbHost, (error, db) ->
   collection = db.collection('credentials')
