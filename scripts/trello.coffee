@@ -9,7 +9,7 @@
 #   hubot trello new sprint <boardName> - <boardName>のDoneのリストをアーカイブし、空のDoneリストを用意する
 #   hubot trello get <boardName>/<cardName> - カードを指定してディスクリプションを表示する
 
-Trello = require('node-trello')
+Trello = require 'node-trello'
 
 module.exports = (robot) ->
   trello = new Trello(
