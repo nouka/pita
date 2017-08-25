@@ -37,12 +37,28 @@ module.exports = (robot) ->
     message += "#{kintaUrl}"
     msg.reply message
 
-  robot.respond /test/, (msg) ->
+  robot.respond /workday (.*)/, (msg) ->
+    workday = msg.match[1]
     calendarName = "japanese__ja@holiday.calendar.google.com"
     limit = 100
-    startDate = "2017-08-01T00:00:00Z"
-    endDate = "2017-08-31T23:59:59Z"
-    url = "https://www.googleapis.com/calendar/v3/calendars/#{calendarName}/events?key=#{process.env.GOOGLE_CALENDAR_API_KEY}&timeMin=#{startDate}&timeMax=#{endDate}&maxResults=#{limit}&orderBy=startTime&singleEvents=true"
+
+    startDate = new Date()
+    startDate.setDate(1)
+    startDate.setHours(0)
+    startDate.setMinutes(0)
+    startDate.setSeconds(0)
+    startDate.setMilliseconds(0)
+
+    endDate = new Date()
+    endDate.setMonth(endDate.getMonth()+1)
+    endDate.setDate(0)
+    endDate.setHours(23)
+    endDate.setMinutes(59)
+    endDate.setSeconds(59)
+    endDate.setMilliseconds(999)
+
+    url = "https://www.googleapis.com/calendar/v3/calendars/#{calendarName}/events?key=#{process.env.GOOGLE_CALENDAR_API_KEY}&timeMin=#{startDate.toJSON()}&timeMax=#{endDate.toJSON()}&maxResults=#{limit}&orderBy=startTime&singleEvents=true"
+    console.log(url)
     request.get url, (error, response, body) ->
       if error or response.statusCode != 200
         return msg.send "Googleカレンダーのデータ取得に失敗しました。"
