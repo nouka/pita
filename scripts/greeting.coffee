@@ -47,7 +47,9 @@ module.exports = (robot) ->
       if error or response.statusCode != 200
         return msg.send "Googleカレンダーのデータ取得に失敗しました。"
       data = JSON.parse body
-      console.log(data)
+      data.items.forEach((row) ->
+        console.log(row)
+      )
 
     msg.send "test"
 
