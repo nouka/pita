@@ -46,17 +46,15 @@ module.exports = (robot) ->
     message += "#{kintaUrl}"
     msg.reply message
 
-  robot.respond /workday (.*)/, (msg) ->
-    workday = msg.match[1]
-
-    if (todayIsNBizDay(workday))
-      msg.send "true"
-    else
-      msg.send "false"
-
   new cronJob('0 55 9,18 * * 1-5', () ->
     user = room: hipchat.getHipChatRoomId('【all】全員集合')
     message = "@here 皆さん勤太くんに打刻しましたか？\n"
     message += "#{kintaUrl}"
+    if (todayIsNBizDay(3))
+      message += "今日は勤怠の締日です。各自先月の勤怠を確認しましょう。\n"
+      message += "#{kintaLoginUrl}"
+    else (todayIsNBizDay(5))
+      message += "今日は勤怠の承認日です。上長のみなさんはメンバーの勤怠を承認してください。\n"
+      message += "#{kintaLoginUrl}"
     robot.send user, message
   ).start()
