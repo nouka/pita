@@ -9,7 +9,8 @@
 
 cronJob = require('cron').CronJob
 hipchat = require('./hipchat.coffee')
-request = require 'request'
+koyomi = require 'koyomi'
+moment = require 'moment'
 
 module.exports = (robot) ->
   kintaUrl = "http://www3.kinta.ne.jp/kinta2/tr/"
@@ -39,35 +40,42 @@ module.exports = (robot) ->
 
   robot.respond /workday (.*)/, (msg) ->
     workday = msg.match[1]
-    calendarName = "japanese__ja@holiday.calendar.google.com"
-    limit = 100
 
-    startDate = new Date()
-    startDate.setDate(1)
-    startDate.setHours(0)
-    startDate.setMinutes(0)
-    startDate.setSeconds(0)
-    startDate.setMilliseconds(0)
+    startDate = moment().format('YYYY-M-1')
 
-    endDate = new Date()
-    endDate.setMonth(endDate.getMonth()+1)
-    endDate.setDate(0)
-    endDate.setHours(23)
-    endDate.setMinutes(59)
-    endDate.setSeconds(59)
-    endDate.setMilliseconds(999)
+    bizDay = moment(koyomi.addBiz(startDate, workday)).format('YYYY-MM-DD')
 
-    url = "https://www.googleapis.com/calendar/v3/calendars/#{calendarName}/events?key=#{process.env.GOOGLE_CALENDAR_API_KEY}&timeMin=#{startDate.toJSON()}&timeMax=#{endDate.toJSON()}&maxResults=#{limit}&orderBy=startTime&singleEvents=true"
-    console.log(url)
-    request.get url, (error, response, body) ->
-      if error or response.statusCode != 200
-        return msg.send "Googleカレンダーのデータ取得に失敗しました。"
-      data = JSON.parse body
-      data.items.forEach((row) ->
-        console.log(row)
-      )
+    msg.send bizDay
 
-    msg.send "test"
+    # calendarName = "japanese__ja@holiday.calendar.google.com"
+    # limit = 100
+    #
+    # startDate = new Date()
+    # startDate.setDate(1)
+    # startDate.setHours(0)
+    # startDate.setMinutes(0)
+    # startDate.setSeconds(0)
+    # startDate.setMilliseconds(0)
+    #
+    # endDate = new Date()
+    # endDate.setMonth(endDate.getMonth()+1)
+    # endDate.setDate(0)
+    # endDate.setHours(23)
+    # endDate.setMinutes(59)
+    # endDate.setSeconds(59)
+    # endDate.setMilliseconds(999)
+    #
+    # url = "https://www.googleapis.com/calendar/v3/calendars/#{calendarName}/events?key=#{process.env.GOOGLE_CALENDAR_API_KEY}&timeMin=#{startDate.toJSON()}&timeMax=#{endDate.toJSON()}&maxResults=#{limit}&orderBy=startTime&singleEvents=true"
+    # console.log(url)
+    # request.get url, (error, response, body) ->
+    #   if error or response.statusCode != 200
+    #     return msg.send "Googleカレンダーのデータ取得に失敗しました。"
+    #   data = JSON.parse body
+    #   data.items.forEach((row) ->
+    #     console.log(row)
+    #   )
+    #
+    # msg.send "test"
 
   new cronJob('0 55 9,19 * * 1-5', () ->
     user = room: hipchat.getHipChatRoomId('【all】全員集合')
