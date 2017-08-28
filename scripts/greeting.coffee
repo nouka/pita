@@ -14,6 +14,14 @@ moment = require 'moment'
 
 module.exports = (robot) ->
   kintaUrl = "http://www3.kinta.ne.jp/kinta2/tr/"
+  kintaLoginUrl = "http://www3.kinta.ne.jp/kinta2/web/login.aspx"
+
+  todayIsNBizDay = (n) ->
+    dateFormat = 'YYYY-MM-DD'
+    bizDay = moment(koyomi.addBiz(moment().format('YYYY-M-1'), workday)).format(dateFormat)
+    today = moment().format(dateFormat)
+    return (today == bizDay)
+
   getTime = ->
     date = new Date()
     return date.getHours() + ":" + date.getMinutes()
@@ -41,43 +49,12 @@ module.exports = (robot) ->
   robot.respond /workday (.*)/, (msg) ->
     workday = msg.match[1]
 
-    startDate = moment().format('YYYY-M-1')
+    if (todayIsNBizDay(workday))
+      msg.send "true"
+    else
+      msg.send "false"
 
-    bizDay = moment(koyomi.addBiz(startDate, workday)).format('YYYY-MM-DD')
-
-    msg.send bizDay
-
-    # calendarName = "japanese__ja@holiday.calendar.google.com"
-    # limit = 100
-    #
-    # startDate = new Date()
-    # startDate.setDate(1)
-    # startDate.setHours(0)
-    # startDate.setMinutes(0)
-    # startDate.setSeconds(0)
-    # startDate.setMilliseconds(0)
-    #
-    # endDate = new Date()
-    # endDate.setMonth(endDate.getMonth()+1)
-    # endDate.setDate(0)
-    # endDate.setHours(23)
-    # endDate.setMinutes(59)
-    # endDate.setSeconds(59)
-    # endDate.setMilliseconds(999)
-    #
-    # url = "https://www.googleapis.com/calendar/v3/calendars/#{calendarName}/events?key=#{process.env.GOOGLE_CALENDAR_API_KEY}&timeMin=#{startDate.toJSON()}&timeMax=#{endDate.toJSON()}&maxResults=#{limit}&orderBy=startTime&singleEvents=true"
-    # console.log(url)
-    # request.get url, (error, response, body) ->
-    #   if error or response.statusCode != 200
-    #     return msg.send "Googleカレンダーのデータ取得に失敗しました。"
-    #   data = JSON.parse body
-    #   data.items.forEach((row) ->
-    #     console.log(row)
-    #   )
-    #
-    # msg.send "test"
-
-  new cronJob('0 55 9,19 * * 1-5', () ->
+  new cronJob('0 55 9,18 * * 1-5', () ->
     user = room: hipchat.getHipChatRoomId('【all】全員集合')
     message = "@here 皆さん勤太くんに打刻しましたか？\n"
     message += "#{kintaUrl}"
