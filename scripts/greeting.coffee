@@ -53,7 +53,7 @@ module.exports = (robot) ->
     if (todayIsNBizDay(3))
       message += "今日は勤怠の締日です。各自先月の勤怠を確認しましょう。\n"
       message += "#{kintaLoginUrl}"
-    else (todayIsNBizDay(5))
+    else if (todayIsNBizDay(5))
       message += "今日は勤怠の承認日です。上長のみなさんはメンバーの勤怠を承認してください。\n"
       message += "#{kintaLoginUrl}"
     robot.send user, message
