@@ -18,7 +18,7 @@ module.exports = (robot) ->
 
   todayIsNBizDay = (n) ->
     dateFormat = 'YYYY-MM-DD'
-    bizDay = moment(koyomi.addBiz(moment().format('YYYY-M-1'), n)).format(dateFormat)
+    bizDay = moment(koyomi.addBiz(moment().format('YYYY-M-1'), n, true)).format(dateFormat)
     today = moment().format(dateFormat)
     return (today == bizDay)
 
