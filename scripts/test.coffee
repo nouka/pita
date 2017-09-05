@@ -51,7 +51,7 @@ module.exports = (robot) ->
         // 注意：ログイン情報、URL、お気に入りリストなどをJSに初期化、下に移動不可
         var islogin = false;
         var base_url = "http://sp.hapitas.jp/";
-        var base_url_https = "https://rcsp.hapitas.jp/";
+        var base_url_https = "https://sp.hapitas.jp/";
         var http_user_agent = "http://sp.hapitas.jp/";
         var favorite_list = new Array();
         var usedcheck_list = new Array();
@@ -267,10 +267,10 @@ _gaq.push(['_trackPageview']);
                 </p>
                 <p class="product_share_des">お得な商品を友達に紹介してみよう</p>
                 <div class="product-share-button"><ul class="product-share-button-ul">
-<li class="product-share-button-li"><a href="https://www.facebook.com/dialog/share?app_id=1622282411327627&display=popup&href=http%3A%2F%2Frcsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951&redirect_uri=http%3A%2F%2Frcsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_facebook.png" alt="Facebookで紹介" class="product-share-button-img" /></a></li>
-<li class="product-share-button-li"><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Frcsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_twitter.png" alt="Twitterで紹介" class="product-share-button-img" /></a></li>
-<li class="product-share-button-li"><a href="https://plus.google.com/share?url=rcsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" onclick="window.open(this.href, 'Gwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_google_plus.png" alt="Google+で紹介" class="product-share-button-img" /></a></li>
-<li class="product-share-button-li"><a href="http://line.me/R/msg/text/?http%3A%2F%2Frcsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_line.png" alt="LINEで紹介" class="product-share-button-img" /></a></li>
+<li class="product-share-button-li"><a href="https://www.facebook.com/dialog/share?app_id=1622282411327627&display=popup&href=http%3A%2F%2Fsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951&redirect_uri=http%3A%2F%2Fsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_facebook.png" alt="Facebookで紹介" class="product-share-button-img" /></a></li>
+<li class="product-share-button-li"><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_twitter.png" alt="Twitterで紹介" class="product-share-button-img" /></a></li>
+<li class="product-share-button-li"><a href="https://plus.google.com/share?url=sp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" onclick="window.open(this.href, 'Gwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_google_plus.png" alt="Google+で紹介" class="product-share-button-img" /></a></li>
+<li class="product-share-button-li"><a href="http://line.me/R/msg/text/?http%3A%2F%2Fsp.hapitas.jp%2Fproduct%2Fdetail%2Fbeau-p%3A10006951" class="product-share-button-link"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/friend/friend_event201707/step2_line.png" alt="LINEで紹介" class="product-share-button-img" /></a></li>
 </ul></div>
             </div>
                             <div class="point-condition-text">
