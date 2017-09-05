@@ -21,7 +21,7 @@ module.exports = (robot) ->
     <meta charset="utf-8">
     <meta name="viewport" content="width=640" />
     <!-- Start Meta info for facebook like button -->
-            <meta property="og:url" content="http://rcsp.hapitas.jp/product/detail/beau-p:10006951">
+            <meta property="og:url" content="http://sp.hapitas.jp/product/detail/beau-p:10006951">
         <meta property="og:type" content="website">
             <meta property="og:title" content="スリッパ 5足セット グレイズ M&Lサイズ 夏スリッパ　ソフトタイプ かわいい 楽　おしゃれ 洗える 来客用【送料無料】【ポイント20倍】">
         <meta itemprop="og:headline" content="スリッパ 5足セット グレイズ M&Lサイズ 夏スリッパ　ソフトタイプ かわいい 楽　おしゃれ 洗える 来客用【送料無料】【ポイント20倍】">
@@ -50,9 +50,9 @@ module.exports = (robot) ->
         <script type="text/javascript">
         // 注意：ログイン情報、URL、お気に入りリストなどをJSに初期化、下に移動不可
         var islogin = false;
-        var base_url = "http://rcsp.hapitas.jp/";
+        var base_url = "http://sp.hapitas.jp/";
         var base_url_https = "https://rcsp.hapitas.jp/";
-        var http_user_agent = "http://rcsp.hapitas.jp/";
+        var http_user_agent = "http://sp.hapitas.jp/";
         var favorite_list = new Array();
         var usedcheck_list = new Array();
         var ajax_index = 0, ajax_list = new Array();
@@ -120,10 +120,10 @@ _gaq.push(['_trackPageview']);
     <!--//ヘッダー　グローバルナビ -->
     <header>
                 <div class="header_inner clearfix">
-            <p class="fl_l"><a href="http://rcsp.hapitas.jp/"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/logo.png" alt="ネットショッピングでお得にポイントを貯めて現金やギフト券に交換するならハピタス"></a></p>
+            <p class="fl_l"><a href="http://sp.hapitas.jp/"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/logo.png" alt="ネットショッピングでお得にポイントを貯めて現金やギフト券に交換するならハピタス"></a></p>
                             <ul class="header_bnt">
-                    <li><a href="http://rcsp.hapitas.jp/social_register"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/ico_regist.png">会員登録</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/auth/login"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/ico_login.png">ログイン</a></li>
+                    <li><a href="http://sp.hapitas.jp/social_register"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/ico_regist.png">会員登録</a></li>
+                    <li><a href="http://sp.hapitas.jp/auth/login"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/ico_login.png">ログイン</a></li>
                     <li><a href="javascript:void(0);" id="drawerOpen"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/ico_menu.png">メニュー</a></li>
                 </ul>
                     </div>
@@ -142,7 +142,7 @@ _gaq.push(['_trackPageview']);
     </ul>
     <div class="tab-content">
         <div id="shopSearch" class="tab-pane search-tabs-content search-tabs-content-shop">
-            <form action="http://rcsp.hapitas.jp/items/search" accept-charset="utf-8" method="get">                <div class="search_box clearfix">
+            <form action="http://sp.hapitas.jp/items/search" accept-charset="utf-8" method="get">                <div class="search_box clearfix">
                     <input name="srctxt" type="search" class="search_input" placeholder="ポイントが貯まるショップ・サービスを探す" value="">
                     <input name="srcbtn" class="search_btn" type="submit" value="">
                 </div>
@@ -150,22 +150,22 @@ _gaq.push(['_trackPageview']);
     <p class="search_keyword_header">人気ワード：</p>
     <ul class="search_keyword_ul">
                     <li class="search_keyword_li">
-                                <a href="http://rcsp.hapitas.jp/items/search/%E6%A5%BD%E5%A4%A9/relevance/rakuten_product" class="search_keyword_link">楽天</a>
+                                <a href="http://sp.hapitas.jp/items/search/%E6%A5%BD%E5%A4%A9/relevance/rakuten_product" class="search_keyword_link">楽天</a>
             </li>
                     <li class="search_keyword_li">
-                                <a href="http://rcsp.hapitas.jp/items/search/yahoo/relevance/rakuten_product" class="search_keyword_link">yahoo</a>
+                                <a href="http://sp.hapitas.jp/items/search/yahoo/relevance/rakuten_product" class="search_keyword_link">yahoo</a>
             </li>
                     <li class="search_keyword_li">
-                                <a href="http://rcsp.hapitas.jp/items/search/Oisix/relevance/rakuten_product" class="search_keyword_link">Oisix</a>
+                                <a href="http://sp.hapitas.jp/items/search/Oisix/relevance/rakuten_product" class="search_keyword_link">Oisix</a>
             </li>
                     <li class="search_keyword_li">
-                                <a href="http://rcsp.hapitas.jp/items/search/ANA/relevance/rakuten_product" class="search_keyword_link">ANA</a>
+                                <a href="http://sp.hapitas.jp/items/search/ANA/relevance/rakuten_product" class="search_keyword_link">ANA</a>
             </li>
             </ul>
 </div>
                     </div>
         <div id="productSearch" class="tab-pane search-tabs-content search-tabs-content-product active">
-            <form action="http://rcsp.hapitas.jp/product/search" accept-charset="utf-8" method="get">                <input name="keyword" type="search" class="product-search-keyword" placeholder="キーワードから探す" value="">
+            <form action="http://sp.hapitas.jp/product/search" accept-charset="utf-8" method="get">                <input name="keyword" type="search" class="product-search-keyword" placeholder="キーワードから探す" value="">
                 <div class="product-search-categories">
                     <label for="category_id">
                         <select name="category_id" id="category_id">
@@ -358,37 +358,37 @@ _gaq.push(['_trackPageview']);
                                 <p class="ft_text_blue">カテゴリ</p>
                 <div class="footer_category clearfix">
                     <ul class="footer_category_list">
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/1">総合ネットショッピング・オークション</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/2">ギフト・百貨店</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/3">クーポン・お取り寄せ・デリバリー</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/4">コスメ・ビューティー</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/5">ファッション・アクセサリー</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/6">ベビー・キッズ・マタニティ</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/7">日用品・コンタクトレンズ・健康食品</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/8">水・ドリンク</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/9">旅行・レジャー・交通手段</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/10">CD・DVD・動画配信</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/11">本・雑誌・電子書籍</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/12">インテリア・ペット・オフィス</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/13">家電・パソコン・通信</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/14">車・スポーツ用品</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/15">クレジットカード</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/16">保険・ローン・資産運用</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/17">引越し・不動産</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/18">仕事・資格・教育</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/19">ゲーム・コミュニティ</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/20">アプリ・エンタメ・着メロ</a></li>
-                                                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/21">その他サービス</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/1">総合ネットショッピング・オークション</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/2">ギフト・百貨店</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/3">クーポン・お取り寄せ・デリバリー</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/4">コスメ・ビューティー</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/5">ファッション・アクセサリー</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/6">ベビー・キッズ・マタニティ</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/7">日用品・コンタクトレンズ・健康食品</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/8">水・ドリンク</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/9">旅行・レジャー・交通手段</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/10">CD・DVD・動画配信</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/11">本・雑誌・電子書籍</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/12">インテリア・ペット・オフィス</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/13">家電・パソコン・通信</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/14">車・スポーツ用品</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/15">クレジットカード</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/16">保険・ローン・資産運用</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/17">引越し・不動産</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/18">仕事・資格・教育</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/19">ゲーム・コミュニティ</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/20">アプリ・エンタメ・着メロ</a></li>
+                                                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/21">その他サービス</a></li>
                                             </ul>
                 </div>
                 <!-- カテゴリのリンクを追加 -->
                 <div class="footer_inner">
                     <ul class="footer_link clearfix">
-                        <li><a href="http://rcsp.hapitas.jp/rules">利用規約</a></li>
-                        <li><a href="http://rcsp.hapitas.jp/company">運営会社</a></li>
-                        <li><a href="http://rcsp.hapitas.jp/kojin">個人情報保護方針</a></li>
+                        <li><a href="http://sp.hapitas.jp/rules">利用規約</a></li>
+                        <li><a href="http://sp.hapitas.jp/company">運営会社</a></li>
+                        <li><a href="http://sp.hapitas.jp/kojin">個人情報保護方針</a></li>
                         <li><a href="http://help.hapitas.jp/" target="_blank">よくある質問</a></li>
-                        <li><a href="http://rcsp.hapitas.jp/inquiry">お問い合わせ</a></li>
+                        <li><a href="http://sp.hapitas.jp/inquiry">お問い合わせ</a></li>
                         <li><a href="http://rc.hapitas.jp">PC版ハピタス</a></li>
                     </ul>
                     <ul class="fmenu-ul">
@@ -407,11 +407,11 @@ _gaq.push(['_trackPageview']);
             <p class="drawer_close"><a href="javascript:void(0);" id="drawerCloseTop"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/ico_close.png">閉じる</a></p>
                             <p class="drawer_h">メニュー</p>
 <ul class="drawer_list">
-    <li><a href="http://rcsp.hapitas.jp/social_register">会員登録</a></li>
-    <li><a href="http://rcsp.hapitas.jp/auth/login">ログイン</a></li>
-    <li><a href="http://rcsp.hapitas.jp/about">ハピタスとは</a></li>
+    <li><a href="http://sp.hapitas.jp/social_register">会員登録</a></li>
+    <li><a href="http://sp.hapitas.jp/auth/login">ログイン</a></li>
+    <li><a href="http://sp.hapitas.jp/about">ハピタスとは</a></li>
     <li><a href="http://help.hapitas.jp/" target="_blank">よくある質問</a></li>
-    <li><a href="http://rcsp.hapitas.jp/inquiry">お問い合わせ</a></li>
+    <li><a href="http://sp.hapitas.jp/inquiry">お問い合わせ</a></li>
     <li><a href="http://rc.hapitas.jp">PC版ハピタス</a></li>
 </ul>
 <p class="drawer_h">スタッフおすすめ</p>
@@ -419,45 +419,45 @@ _gaq.push(['_trackPageview']);
     <li><a href="/special/rakuten?apn=rakutenmenu">楽天サービス一覧
                     </a>
     </li>
-    <li><a href="http://rcsp.hapitas.jp/high_reduction/shopping50prc?apn=menu_high_reduction">ショッピングで50%以上貯める
+    <li><a href="http://sp.hapitas.jp/high_reduction/shopping50prc?apn=menu_high_reduction">ショッピングで50%以上貯める
                     </a>
     </li>
-    <li><a href="http://rcsp.hapitas.jp/high_reduction/service1000pt?apn=menu_high_reduction">サービス利用で1000pt以上貯める
+    <li><a href="http://sp.hapitas.jp/high_reduction/service1000pt?apn=menu_high_reduction">サービス利用で1000pt以上貯める
                     </a>
     </li>
-    <li><a href="http://rcsp.hapitas.jp/enquete?apn=menu_enquete">アンケートひろば
+    <li><a href="http://sp.hapitas.jp/enquete?apn=menu_enquete">アンケートひろば
                     </a>
     </li>
 </ul>
     <p class="drawer_h">カテゴリ</p>
     <ul class="drawer_list">
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/1"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg01.png">総合ネットショッピング・オークション</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/2"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg13.png">ギフト・百貨店</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/3"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg08.png">クーポン・お取り寄せ・デリバリー</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/4"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg02.png">コスメ・ビューティー</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/5"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg11.png">ファッション・アクセサリー</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/6"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg12.png">ベビー・キッズ・マタニティ</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/7"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg03.png">日用品・コンタクトレンズ・健康食品</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/8"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg09.png">水・ドリンク</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/9"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg15.png">旅行・レジャー・交通手段</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/10"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg06.png">CD・DVD・動画配信</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/11"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg04.png">本・雑誌・電子書籍</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/12"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg10.png">インテリア・ペット・オフィス</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/13"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg05.png">家電・パソコン・通信</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/14"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg14.png">車・スポーツ用品</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/15"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg16.png">クレジットカード</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/16"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg17.png">保険・ローン・資産運用</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/17"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg18.png">引越し・不動産</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/18"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg19.png">仕事・資格・教育</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/19"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg07.png">ゲーム・コミュニティ</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/20"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg20.png">アプリ・エンタメ・着メロ</a></li>
-                    <li><a href="http://rcsp.hapitas.jp/category_parent/detail/id/21"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg21.png">その他サービス</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/1"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg01.png">総合ネットショッピング・オークション</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/2"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg13.png">ギフト・百貨店</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/3"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg08.png">クーポン・お取り寄せ・デリバリー</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/4"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg02.png">コスメ・ビューティー</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/5"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg11.png">ファッション・アクセサリー</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/6"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg12.png">ベビー・キッズ・マタニティ</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/7"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg03.png">日用品・コンタクトレンズ・健康食品</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/8"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg09.png">水・ドリンク</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/9"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg15.png">旅行・レジャー・交通手段</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/10"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg06.png">CD・DVD・動画配信</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/11"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg04.png">本・雑誌・電子書籍</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/12"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg10.png">インテリア・ペット・オフィス</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/13"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg05.png">家電・パソコン・通信</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/14"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg14.png">車・スポーツ用品</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/15"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg16.png">クレジットカード</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/16"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg17.png">保険・ローン・資産運用</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/17"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg18.png">引越し・不動産</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/18"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg19.png">仕事・資格・教育</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/19"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg07.png">ゲーム・コミュニティ</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/20"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg20.png">アプリ・エンタメ・着メロ</a></li>
+                    <li><a href="http://sp.hapitas.jp/category_parent/detail/id/21"><img src="http://img.hapitas.jp/img_rc/smart/img/category_ico/ico_ctg21.png">その他サービス</a></li>
             </ul>
 <p class="drawer_h">ご案内</p>
 <ul class="drawer_list">
-    <li><a href="http://rcsp.hapitas.jp/rules">利用規約</a></li>
-    <li><a href="http://rcsp.hapitas.jp/kojin">個人情報保護方針</a></li>
-    <li><a href="http://rcsp.hapitas.jp/company">運営会社</a></li>
+    <li><a href="http://sp.hapitas.jp/rules">利用規約</a></li>
+    <li><a href="http://sp.hapitas.jp/kojin">個人情報保護方針</a></li>
+    <li><a href="http://sp.hapitas.jp/company">運営会社</a></li>
 </ul>
                         <p class="drawer_close"><a href="javascript:void(0);" id="drawerCloseBottom"><img src="http://img-origin.hapitas.jp/img_rc/smart/img/common/ico_close.png">閉じる</a></p>
         </div>
