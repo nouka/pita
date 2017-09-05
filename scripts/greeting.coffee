@@ -49,7 +49,7 @@ module.exports = (robot) ->
   new cronJob('0 55 9,18 * * 1-5', () ->
     user = room: hipchat.getHipChatRoomId('【all】全員集合')
     message = "@here 皆さん勤太くんに打刻しましたか？\n"
-    message += "#{kintaUrl}"
+    message += "#{kintaUrl}\n"
     if (todayIsNBizDay(3))
       message += "今日は勤怠の締日です。各自先月の勤怠を確認しましょう。\n"
       message += "#{kintaLoginUrl}"
