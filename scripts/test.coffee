@@ -7,7 +7,7 @@ module.exports = (robot) ->
       <html>
         <head>
           <title>Finger Print Test</title>
-          <script src="//cdn.jsdelivr.net/npm/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
+          <script src="//cdn.jsdelivr.net/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
           <script>
             new Fingerprint2().get(function(result, components) {
               document.getElementById("result").value = result;
