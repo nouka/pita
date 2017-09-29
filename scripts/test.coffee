@@ -10,8 +10,8 @@ module.exports = (robot) ->
           <script src="//cdn.jsdelivr.net/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
           <script>
             new Fingerprint2().get(function(result, components) {
-              document.getElementById("result").value = result;
-              document.getElementById("components").value = components;
+              document.getElementById("result").textContent = result;
+              document.getElementById("components").textContent = components;
             });
           </script>
         </head>
