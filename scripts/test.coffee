@@ -11,15 +11,13 @@ module.exports = (robot) ->
           <script>
             new Fingerprint2().get(function(result, components) {
               document.getElementById("result").textContent = result;
-              document.getElementById("components").textContent = components;
+              console.log(components);
             });
           </script>
         </head>
         <body>
           <h2>result</h2>
           <p id="result"></p>
-          <h2>components</h2>
-          <p id="components"></p>
         </body>
       </html>
     """
