@@ -379,7 +379,7 @@ _gaq.push(['_trackPageview']);
     <meta charset="utf-8">
     <meta name="viewport" content="width=640" />
     <!-- Start Meta info for facebook like button -->
-            <meta property="og:url" content="http://sp.hapitas.jp">
+            <meta property="og:url" content="https://pitapita.herokuapp.com/test/share">
         <meta property="og:type" content="website">
             <meta property="og:title" content="今なら会員登録で100円分のポイントがもらえる！">
         <meta itemprop="og:headline" content="今なら会員登録で100円分のポイントがもらえる！">
