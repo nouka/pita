@@ -15,7 +15,7 @@ module.exports = (robot) ->
     cmds.push(cmd) if cmds.indexOf(cmd) is -1
 
   robot.respond /(.+)$/i, (res) ->
-    cmd = msg.match[1].split(' ')[0]
+    cmd = res.match[1].split(' ')[0]
     unless cmds.indexOf(cmd) is -1
       return
 
