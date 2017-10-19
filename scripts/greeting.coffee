@@ -6,11 +6,13 @@
 #   hubot お疲れ様 - 退勤時間と勤怠管理ツールのリンクを返す
 #   hubot 休憩入 - 休憩入り時間と勤怠管理ツールのリンクを返す
 #   hubot 休憩戻 - 休憩戻り時間と勤怠管理ツールのリンクを返す
+#   hubot 名言 - 名言集から1つランダムにつぶやく
 
 cronJob = require('cron').CronJob
 hipchat = require('./hipchat.coffee')
 koyomi = require 'koyomi'
 moment = require 'moment'
+maxim = require './maxim.json'
 
 module.exports = (robot) ->
   kintaUrl = "http://www3.kinta.ne.jp/kinta2/tr/"
@@ -45,6 +47,13 @@ module.exports = (robot) ->
     message = msg.message.user.name + "さんの戻り時間 " + getTime() + "\n"
     message += "#{kintaUrl}"
     msg.reply message
+
+  robot.respond /名言/i, (msg) ->
+    item = msg.random maxim
+    message = item.title + "\n"
+    message += item.body + "\n"
+    message += item.note
+    msg.send message
 
   new cronJob('0 55 9,18 * * 1-5', () ->
     user = room: hipchat.getHipChatRoomId('【all】全員集合')
