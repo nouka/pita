@@ -16,6 +16,8 @@ module.exports = (robot) ->
 
   robot.respond /(.+)$/i, (res) ->
     cmd = res.match[1].split(' ')[0]
+    console.log cmd
+    console.log cmds.indexOf(cmd)
     unless cmds.indexOf(cmd) is -1
       return
 
