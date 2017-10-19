@@ -9,7 +9,16 @@
 
 module.exports = (robot) ->
 
-  robot.respond /([^a-z]*)/i, (res) ->
+  cmds = []
+  for help in robot.helpCommands()
+    cmd = help.split(' ')[1]
+    cmds.push(cmd) if cmds.indexOf(cmd) is -1
+
+  robot.respond /(.+)$/i, (res) ->
+    cmd = msg.match[1].split(' ')[0]
+    unless cmds.indexOf(cmd) is -1
+      return
+
     message = res.match[1]
     return if message is ''
 
