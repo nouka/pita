@@ -35,7 +35,7 @@ module.exports = (robot) ->
     if (repo != "woodstock" || env != "dev")
       jobName += "-Cap"
     if (repo == "react")
-      jobName += "-2017-11-28"
+      jobName = "Spitz-Demo-Deploy-Cap-2017-11-28"
 
     msg.send ci.jenkinsUrl(repo) + "/job/" + jobName + "/"
 
