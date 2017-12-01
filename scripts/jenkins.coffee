@@ -27,13 +27,15 @@ module.exports = (robot) ->
     if (availableEnv.indexOf(env) < 0)
       return msg.send("環境名が違います。")
 
-    availableRepo = ['woodstock', 'spitz', 'apollo', 'iron']
+    availableRepo = ['woodstock', 'spitz', 'apollo', 'iron', 'react']
     if (availableRepo.indexOf(repo) < 0)
       return msg.send("指定されたリポジトリは対応していません。")
 
     jobName = repositoryName(repo) + "-" + environments[env] + "-Deploy"
     if (repo != "woodstock" || env != "dev")
       jobName += "-Cap"
+    if (repo == "react")
+      jobName += "-2017-11-28"
 
     msg.send ci.jenkinsUrl(repo) + "/job/" + jobName + "/"
 
