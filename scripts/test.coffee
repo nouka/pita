@@ -12,9 +12,12 @@ module.exports = (robot) ->
 <div id="root"></div>
 <script>
 //var date = new Date('Sat Dec 30 2017 23:59:59 GMT+0900');
-var date = new Date(Date.now());
+var date = new Date('2017/12/14 23:59:59');
+//var date = new Date(Date.now());
+var startDate = typeof date === 'string' ? new Date(date) : date;
+var total = parseInt((Math.max(0, startDate - Date.now()) / 1000).toFixed(Math.max(0, Math.min(20, 0))) * 1000, 10);
 var elem = document.getElementById('root');
-elem.innerHTML = '' + date.getFullYear() + date.getMonth() + date.getDate() + date.getHours() + date.getMinutes() + date.getSeconds();
+elem.innerHTML = '' + total;
 </script>
 </body>
 </html>
