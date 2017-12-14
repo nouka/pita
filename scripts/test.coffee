@@ -17,7 +17,7 @@ var date = new Date('2017/12/14 23:59:59');
 var startDate = typeof date === 'string' ? new Date(date) : date;
 var total = parseInt((Math.max(0, startDate - Date.now()) / 1000).toFixed(Math.max(0, Math.min(20, 0))) * 1000, 10);
 var elem = document.getElementById('root');
-elem.innerHTML = '' + total;
+elem.innerHTML = '' + total + ':' + Date.now();
 </script>
 </body>
 </html>
