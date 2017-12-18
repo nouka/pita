@@ -6,6 +6,8 @@ module.exports = (robot) ->
 <!DOCTYPR html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <title>Test</title>
 </head>
 <body>
 <div style="position: fixed; width: 100%; display: flex; justify-content: center; background-color: rgb(249, 249, 249); height: 56px; bottom: 0px; border-top: 1px solid rgb(254, 239, 0); box-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0px 0px; z-index: 1000; text-align: center;">
