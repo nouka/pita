@@ -23,6 +23,7 @@
     "hubot-rules": "^0.1.1",
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.0",
+    "hubot-slack": "^4.4.0",
     "koyomi": "^0.5.1",
     "moment": "^2.18.1",
     "mongodb": "^2.2.30",
