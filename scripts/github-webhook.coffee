@@ -4,7 +4,6 @@
 # Notes:
 #   Pull Request, Issueが対象
 crypto = require 'crypto'
-hipchat = require('./hipchat.coffee')
 
 module.exports = (robot) ->
   isValidSign = (sign, body) ->
@@ -50,7 +49,7 @@ module.exports = (robot) ->
         messageForPullRequest req.body
 
     if message?
-      robot.send {room: hipchat.getHipChatRoomId('to_c_business')}, message
+      ##robot.send {room: hipchat.getHipChatRoomId('to_c_business')}, message
       res.status(201).send 'created'
     else
       res.status(200).send 'ok'
