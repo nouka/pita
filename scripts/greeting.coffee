@@ -9,7 +9,6 @@
 #   hubot 名言 - 名言集から1つランダムにつぶやく
 
 cronJob = require('cron').CronJob
-hipchat = require('./hipchat.coffee')
 koyomi = require 'koyomi'
 moment = require 'moment'
 maxim = require './maxim.json'
@@ -54,16 +53,3 @@ module.exports = (robot) ->
     message += item.body + "\n"
     message += item.note
     msg.send message
-
-  new cronJob('0 55 9,18 * * 1-5', () ->
-    user = room: hipchat.getHipChatRoomId('【all】全員集合')
-    message = "@here 皆さん勤太くんに打刻しましたか？\n"
-    message += "#{kintaUrl}\n"
-    if (todayIsNBizDay(3))
-      message += "今日は勤怠の締日です。各自先月の勤怠を確認しましょう。\n"
-      message += "#{kintaLoginUrl}"
-    else if (todayIsNBizDay(5))
-      message += "今日は勤怠の承認日です。上長のみなさんはメンバーの勤怠を承認してください。\n"
-      message += "#{kintaLoginUrl}"
-    robot.send user, message
-  ).start()
