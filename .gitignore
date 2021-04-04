@@ -1,4 +1,19 @@
+# package directories
 node_modules
-.DS_Store*
-.hubot_history
-npm-debug.log
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack
+
+.env
+.aws
+
+.DS_Store
+
+.vscode
+.build
+lib/
+package-lock.json
